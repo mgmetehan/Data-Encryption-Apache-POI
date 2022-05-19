@@ -1,4 +1,4 @@
-package service;
+package service.write;
 
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
@@ -11,7 +11,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
 
-public class WriteExcelDemo1 {
+public class WriteExcelDemo {
 
     private static final String filePath = "C:\\Users\\mgmet\\Desktop\\deneme.xlsx";
 
