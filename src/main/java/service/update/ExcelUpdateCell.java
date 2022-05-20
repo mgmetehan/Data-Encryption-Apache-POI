@@ -10,6 +10,7 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 
 public class ExcelUpdateCell {
+    //Tek bir hücreyi değiştiriyor
     private static final String filePath = "C:\\Users\\mgmet\\Desktop\\deneme.xlsx";
 
     public static void main(String[] args) {
@@ -25,13 +26,13 @@ public class ExcelUpdateCell {
             XSSFSheet sheet = workbook.getSheetAt(0);
 
             // Print data present at row 0 column 2
-            System.out.println(sheet.getRow(4).getCell(1).getStringCellValue());
+            System.out.println(sheet.getRow(3).getCell(0).getStringCellValue());
 
             // Get the Cell at index 3 from the above row
-            XSSFCell cell = sheet.getRow(4).getCell(1);
+            XSSFCell cell = sheet.getRow(3).getCell(0);
 
             cell.setCellType(CellType.STRING);
-            cell.setCellValue("Updated Value");
+            cell.setCellValue("*****");
 
             // Write the output to the file
             FileOutputStream fileOut = new FileOutputStream(new File(filePath));

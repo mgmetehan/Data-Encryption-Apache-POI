@@ -10,6 +10,7 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 
 public class UpdateRowExcel {
+    //Tüm sütunu değiştiriyor
     private static final String filePath = "C:\\Users\\mgmet\\Desktop\\deneme.xlsx";
 
     public static void main(String[] args) {

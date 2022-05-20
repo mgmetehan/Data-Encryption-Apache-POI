@@ -1,0 +1,11 @@
+
+v
+java:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(ƒ·ÒÈ8µ‹Ç…0
+h
+java:S1192"FDefine a constant instead of duplicating this literal "*****" 4 times.(»ŞÙıøÿÿÿÿ8µ‹Ç…0
+g
+java:S2095"JUse try-with-resources or close this "XSSFWorkbook" in a "finally" clause.(¸™á…8ö‹Ç…0
+t	java:S115"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(Üúÿıÿÿÿÿ
+\
+java:S1075"ARefactor your code to get this URI from a customizable parameter.(Üúÿıÿÿÿÿ
+S	java:S1062"9Replace this use of System.out or System.err by a logger.(Ü¥œ¸üÿÿÿÿ
