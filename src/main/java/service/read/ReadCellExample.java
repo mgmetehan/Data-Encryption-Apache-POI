@@ -9,8 +9,8 @@ public class ReadCellExample {
     private static final String filePath = "C:\\Users\\mgmet\\Desktop\\deneme.xlsx";
 
     public static void main(String[] args) {
-        ReadCellExample rc = new ReadCellExample();   //object of the class
-        rc.ReadCellData(1, 0);
+        ReadCellExample read = new ReadCellExample();   //object of the class
+        read.ReadCellData(1, 0);
     }
 
     //method defined for reading a cell
@@ -27,14 +27,16 @@ public class ReadCellExample {
         }
         Sheet sheet = wb.getSheetAt(0);   //getting the XSSFSheet object at given index
 
-        Row row = sheet.getRow(vRow); //returns the logical row
-        Cell cell = row.getCell(vColumn); //getting the cell representing the given column
-        if (cell.getCellType() == CellType.STRING) {
-            value = cell.getStringCellValue() + "  ";
-        } else if (cell.getCellType() == CellType.NUMERIC) {
-            value = cell.getNumericCellValue() + "  ";
+        for (int rowLastIndex = 0; rowLastIndex < sheet.getLastRowNum(); rowLastIndex++) {
+            Row row = sheet.getRow(vRow++); //returns the logical row
+            Cell cell = row.getCell(vColumn); //getting the cell representing the given column
+            if (cell.getCellType() == CellType.STRING) {
+                value = cell.getStringCellValue();
+            } else if (cell.getCellType() == CellType.NUMERIC) {
+                value = String.valueOf(cell.getNumericCellValue());
+            }
+            System.out.println(value);
         }
-        System.out.println(value + "\n");
     }
 
 }
