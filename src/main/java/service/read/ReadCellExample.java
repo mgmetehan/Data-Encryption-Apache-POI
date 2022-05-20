@@ -13,14 +13,11 @@ public class ReadCellExample {
         read.ReadCellData(1, 0);
     }
 
-    //method defined for reading a cell
     public void ReadCellData(int vRow, int vColumn) {
-        String value = null;          //variable for storing the cell value
-        Workbook wb = null;           //initialize Workbook null
+        String value = null;
+        Workbook wb = null;
         try {
-//reading data from a file in the form of bytes
             FileInputStream fis = new FileInputStream(filePath);
-//constructs an XSSFWorkbook object, by buffering the whole stream into the memory
             wb = new XSSFWorkbook(fis);
         } catch (Exception e) {
             e.printStackTrace();
