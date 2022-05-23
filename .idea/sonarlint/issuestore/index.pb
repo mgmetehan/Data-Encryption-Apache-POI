@@ -27,13 +27,5 @@ c
 3src/main/java/development/write/WriteExcelDemo.java,6\c\6c38493b3b4c80a167ed301f5c56f61ccd187ad3
 a
 1src/main/java/development/read/ExcelReadDemo.java,6\c\6c790f0f8aaf7161785c4d6144eb84b6d51ce9b9
-W
-'src/main/java/service/TcValidation.java,8\b\8b7ed9137e41011face828b7d2442a5a2a708e27
-Q
-!src/main/java/service/Reader.java,a\6\a67fcfa973b9afa81c8670f206c517991650e129
-Q
-!src/main/java/service/Writer.java,1\0\108ac116c523856b4366629ee63c339170dfafbe
 a
 1src/main/java/development/read/ReadExcelDemo.java,1\0\105a5186416fa9cc79c8512a007fe2d96d844e07
-O
-src/main/java/service/Main.java,3\b\3b9ac0356207403d3c3d789ab8596d936fe79f3f
