@@ -1,4 +1,4 @@
-package service.write;
+package development.write;
 
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
@@ -11,7 +11,8 @@ import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
 
-public class WriteExcel {
+public class WriteExcelDemo {
+
     private static final String filePath = "C:\\Users\\mgmet\\Desktop\\deneme.xlsx";
 
     public static void main(String[] args) {
@@ -22,11 +23,11 @@ public class WriteExcel {
         XSSFSheet sheet = workbook.createSheet("Employee Data");
 
         Map<String, Object[]> data = new TreeMap<String, Object[]>();
-        data.put("1", new Object[]{""});
-        data.put("2", new Object[]{"*****"});
-        data.put("3", new Object[]{"*****"});
-        data.put("4", new Object[]{"*****"});
-        data.put("5", new Object[]{"*****"});
+        data.put("1", new Object[]{"ID", "NAME", "LASTNAME"});
+        data.put("2", new Object[]{1, "Metehan", "Gültekin"});
+        data.put("3", new Object[]{2, "Emre", "Güven"});
+        data.put("4", new Object[]{3, "Burak", "Özcan"});
+        data.put("5", new Object[]{4, "Murat", "Goril"});
 
         //Iterate over data and write to sheet
         Set<String> keyset = data.keySet();
