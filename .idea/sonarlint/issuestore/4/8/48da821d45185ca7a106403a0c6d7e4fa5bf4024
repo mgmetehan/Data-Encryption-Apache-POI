@@ -1,9 +1,0 @@
-
-c
-java:S2095"MUse try-with-resources or close this "FileInputStream" in a "finally" clause.(¹¸–Ñ
-e
-java:S2095"JUse try-with-resources or close this "XSSFWorkbook" in a "finally" clause.(¼Ö‰»üÿÿÿÿ
-t	java:S115"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(Üúÿıÿÿÿÿ
-\
-java:S1075"ARefactor your code to get this URI from a customizable parameter.(Üúÿıÿÿÿÿ
-S	java:S106*"9Replace this use of System.out or System.err by a logger.(ùÁ§Èşÿÿÿÿ

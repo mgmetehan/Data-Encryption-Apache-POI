@@ -25,11 +25,8 @@ public class ExcelUpdateCell {
             // Read excel sheet by sheet name
             XSSFSheet sheet = workbook.getSheetAt(0);
 
-            // Print data present at row 0 column 2
-            System.out.println(sheet.getRow(3).getCell(0).getStringCellValue());
-
             // Get the Cell at index 3 from the above row
-            XSSFCell cell = sheet.getRow(3).getCell(0);
+            XSSFCell cell = sheet.getRow(2).getCell(0);
 
             cell.setCellType(CellType.STRING);
             cell.setCellValue("*****");
