@@ -1,8 +1,0 @@
-
-t	java:S115"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(Üúÿıÿÿÿÿ
-U
-java:S1118":Add a private constructor to hide the implicit public one.(ÕÎÉ‹øÿÿÿÿ
-\
-java:S1075"ARefactor your code to get this URI from a customizable parameter.(Üúÿıÿÿÿÿ
-G
-java:S1068",Remove this unused "filePath" private field.(Üúÿıÿÿÿÿ
