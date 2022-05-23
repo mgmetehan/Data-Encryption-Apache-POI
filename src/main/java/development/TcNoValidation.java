@@ -22,7 +22,7 @@ public class TcNoValidation {
 
     public boolean TcNoCheck(String TcNo) {
         if (TcNo == null || TcNo.length() != 11) {
-            System.out.println("Tc No 11 karakter olmalı");
+            System.out.println("Tc No 11 karakter olmali");
             return false;
         }
         int[] arr = validation.split(TcNo);
