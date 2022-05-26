@@ -10,7 +10,8 @@ public class WordAllReadDemo {
     private static final String filePath = "C:\\Users\\mgmet\\Desktop\\deneme.docx";
 
     public static void main(String[] args) {
-        try (FileInputStream fis = new FileInputStream(filePath)) {
+        try {
+            FileInputStream fis = new FileInputStream(filePath);
             XWPFDocument doc = new XWPFDocument(OPCPackage.open(fis));
             java.util.List<XWPFParagraph> paragraphs = doc.getParagraphs();
             for (XWPFParagraph paragraph : paragraphs) {

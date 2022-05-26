@@ -9,7 +9,8 @@ import java.io.FileInputStream;
 public class WordAllReadDemo1 {
     private static final String filePath = "C:\\Users\\mgmet\\Desktop\\deneme.docx";
     public static void main(String[] args) {
-        try (FileInputStream fis = new FileInputStream(filePath)) {
+        try {
+            FileInputStream fis = new FileInputStream(filePath);
             XWPFDocument file = new XWPFDocument(OPCPackage.open(fis));
             XWPFWordExtractor ext = new XWPFWordExtractor(file);
             System.out.println(ext.getText());

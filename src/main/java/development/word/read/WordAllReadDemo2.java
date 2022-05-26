@@ -12,9 +12,8 @@ public class WordAllReadDemo2 {
     private static final String filePath = "C:\\Users\\mgmet\\Desktop\\deneme.docx";
 
     public static void main(String[] args) {
-        try (XWPFDocument doc = new XWPFDocument(
-                Files.newInputStream(Paths.get(filePath)))) {
-
+        try {
+            XWPFDocument doc = new XWPFDocument(Files.newInputStream(Paths.get(filePath)));
             XWPFWordExtractor xwpfWordExtractor = new XWPFWordExtractor(doc);
             String docText = xwpfWordExtractor.getText();
             System.out.println(docText);
