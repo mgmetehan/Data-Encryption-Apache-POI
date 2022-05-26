@@ -1,4 +1,4 @@
-package development.Tc;
+package development.excel.Tc;
 
 import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.xssf.usermodel.XSSFCell;
@@ -8,61 +8,53 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
-import java.util.Iterator;
 
-public class ReadAllAndWriteTc {
+public class ReadCellAndWriteTc {
     private static final String filePath = "C:\\Users\\mgmet\\Desktop\\deneme.xlsx";
 
-    static ReadAllAndWriteTc read = new ReadAllAndWriteTc();
+    static ReadCellAndWriteTc read = new ReadCellAndWriteTc();
 
     public static void main(String[] args) {
-        read.ReadCellData();
+        read.ReadCellData(1, 0);
     }
 
-    public void ReadCellData() {
-        String value = null, result = null;
-        int vRow = 0, vColumn = 0;
-        boolean check;
+    public void ReadCellData(int vRow, int vColumn) {
+        String value = null;
+        String result = null;
+        Workbook wb = null;
+        int x = 0, y = 0;
+
 
         try {
-            FileInputStream file = new FileInputStream(new File(filePath));
-            //Create Workbook instance holding reference to .xlsx file
-            XSSFWorkbook workbook = new XSSFWorkbook(file);
-            //Get first/desired sheet from the workbook
-            XSSFSheet sheet = workbook.getSheetAt(0);
-            //Iterate through each rows one by one
-            Iterator<Row> rowIterator = sheet.iterator();
-            while (rowIterator.hasNext()) {
-                Row row = rowIterator.next();
-                //For each row, iterate through all the columns
-                Iterator<Cell> cellIterator = row.cellIterator();
-
-                while (cellIterator.hasNext()) {
-                    //o satirdaki siradi hücreyi okur
-                    result = "";
-                    Cell cell = cellIterator.next();
-                    if (cell.getCellType() == CellType.STRING) {
-                        value = cell.getStringCellValue();
-                    } else if (cell.getCellType() == CellType.NUMERIC) {
-                        value = String.valueOf(cell.getNumericCellValue());
-                        for (int i = 0; i < value.length() - 3; i++) {
-                            if (i == 1) {
-                                continue;
-                            }
-                            result += String.valueOf(value.charAt(i));
-                        }
-                        vRow = cell.getRowIndex();
-                        vColumn = cell.getColumnIndex();
-                    }
-                    check = read.TcNoCheck(result);
-                    if (check) {
-                        read.ExcelUpdateCell(vRow, vColumn);
-                    }
-                }
-            }
-            file.close();
+            FileInputStream fis = new FileInputStream(filePath);
+            wb = new XSSFWorkbook(fis);
         } catch (Exception e) {
             e.printStackTrace();
+        }
+        Sheet sheet = wb.getSheetAt(0);   //getting the XSSFSheet object at given index
+
+        for (int rowLastIndex = 0; rowLastIndex < sheet.getLastRowNum(); rowLastIndex++) {
+            result = "";
+            Row row = sheet.getRow(vRow++); //returns the logical row
+            Cell cell = row.getCell(vColumn); //getting the cell representing the given column
+            if (cell.getCellType() == CellType.STRING) {
+                value = cell.getStringCellValue();
+            } else if (cell.getCellType() == CellType.NUMERIC) {
+                value = String.valueOf(cell.getNumericCellValue());
+                for (int i = 0; i < value.length() - 3; i++) {
+                    if (i == 1) {
+                        continue;
+                    }
+                    result += String.valueOf(value.charAt(i));
+                }
+                x = cell.getRowIndex();
+                y = cell.getColumnIndex();
+            }
+            boolean check = read.TcNoCheck(result);
+            if (check) {
+                read.ExcelUpdateCell(x, y);
+
+            }
         }
     }
 

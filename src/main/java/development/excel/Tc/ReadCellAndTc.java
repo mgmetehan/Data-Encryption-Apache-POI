@@ -1,18 +1,14 @@
-package development.Tc;
+package development.excel.Tc;
 
 import org.apache.poi.ss.usermodel.*;
-import org.apache.poi.xssf.usermodel.XSSFCell;
-import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
-import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileOutputStream;
 
-public class ReadCellAndWriteTc {
+public class ReadCellAndTc {
     private static final String filePath = "C:\\Users\\mgmet\\Desktop\\deneme.xlsx";
 
-    static ReadCellAndWriteTc read = new ReadCellAndWriteTc();
+    static ReadCellAndTc read = new ReadCellAndTc();
 
     public static void main(String[] args) {
         read.ReadCellData(1, 0);
@@ -22,8 +18,6 @@ public class ReadCellAndWriteTc {
         String value = null;
         String result = null;
         Workbook wb = null;
-        int x = 0, y = 0;
-
 
         try {
             FileInputStream fis = new FileInputStream(filePath);
@@ -47,14 +41,8 @@ public class ReadCellAndWriteTc {
                     }
                     result += String.valueOf(value.charAt(i));
                 }
-                x = cell.getRowIndex();
-                y = cell.getColumnIndex();
             }
-            boolean check = read.TcNoCheck(result);
-            if (check) {
-                read.ExcelUpdateCell(x, y);
-
-            }
+            System.out.println(read.TcNoCheck(result));//Buraya write kodu gelecek
         }
     }
 
@@ -97,39 +85,6 @@ public class ReadCellAndWriteTc {
             numbers[i] = Integer.valueOf(TcNo.substring(i, (i + 1)));
         }
         return numbers;
-    }
-
-    public void ExcelUpdateCell(int vRow, int vColumn) {
-        try {
-
-            // Create an object of FileInputStream class to read excel file
-            FileInputStream fis = new FileInputStream(new File(filePath));
-
-            // Create object of XSSFWorkbook class
-            XSSFWorkbook workbook = new XSSFWorkbook(fis);
-
-            // Read excel sheet by sheet name
-            XSSFSheet sheet = workbook.getSheetAt(0);
-
-            // Get the Cell at index 3 from the above row
-            XSSFCell cell = sheet.getRow(vRow).getCell(vColumn);
-
-            cell.setCellType(CellType.STRING);
-            cell.setCellValue("*****");
-
-            // Write the output to the file
-            FileOutputStream fileOut = new FileOutputStream(new File(filePath));
-            workbook.write(fileOut);
-
-            System.out.println("Id column in Excel is updated successfully");
-            fileOut.close();
-
-            // Closing the workbook
-            workbook.close();
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
     }
 
 }
