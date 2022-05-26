@@ -21,10 +21,10 @@ public class WordWriter {
                 for (XWPFRun xwpfRun : xwpfParagraph.getRuns()) {
                     String docText = xwpfRun.getText(0);
                     docText = docText.replace(name, "*****");
-                    System.out.println("Word is updated successfully");
                     xwpfRun.setText(docText, 0);
                 }
             }
+            System.out.println("Word is updated successfully");
             // save the docs
             FileOutputStream out = new FileOutputStream(input);
             doc.write(out);
