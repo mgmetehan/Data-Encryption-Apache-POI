@@ -6,7 +6,7 @@ import org.apache.poi.xwpf.usermodel.XWPFParagraph;
 
 import java.io.FileInputStream;
 
-public class AllReadDemo {
+public class WordAllReadDemo {
     private static final String filePath = "C:\\Users\\mgmet\\Desktop\\deneme.docx";
 
     public static void main(String[] args) {

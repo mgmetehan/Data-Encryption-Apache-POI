@@ -8,7 +8,7 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.Arrays;
 
-public class AllReadDemo2 {
+public class WordAllReadDemo2 {
     private static final String filePath = "C:\\Users\\mgmet\\Desktop\\deneme.docx";
 
     public static void main(String[] args) {
