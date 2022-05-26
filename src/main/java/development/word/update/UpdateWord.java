@@ -19,7 +19,7 @@ public class UpdateWord {
         obj.updateDocument(filePath, "*****");
     }
 
-    private void updateDocument(String input, String name)
+    public void updateDocument(String input, String name)
             throws IOException {
 
         try (XWPFDocument doc = new XWPFDocument(
@@ -32,7 +32,7 @@ public class UpdateWord {
                 for (XWPFRun xwpfRun : xwpfParagraph.getRuns()) {
                     String docText = xwpfRun.getText(0);
                     //replacement and setting position
-                    docText = docText.replace("mete", name);
+                    docText = docText.replace(name,"*****");
                     xwpfRun.setText(docText, 0);
                 }
             }
