@@ -11,7 +11,7 @@ import java.nio.file.Paths;
 import java.util.List;
 
 public class WordWriter {
-    public void updateDocument(String input, String name) throws IOException {
+    public void updateDocument(String input, String name) {
 
         try {
             XWPFDocument doc = new XWPFDocument(Files.newInputStream(Paths.get(input)));

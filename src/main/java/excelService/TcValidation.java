@@ -48,8 +48,12 @@ public class TcValidation {
 
     public int[] split(String TcNo) {
         int[] numbers = new int[11];
-        for (int i = 0; i < 11; i++) {
-            numbers[i] = Integer.valueOf(TcNo.substring(i, (i + 1)));
+        try {
+            for (int i = 0; i < 11; i++) {
+                numbers[i] = Integer.valueOf(TcNo.substring(i, (i + 1)));
+            }
+        } catch (Exception e) {
+            System.out.println("Tc No icinde string olamaz!");
         }
         return numbers;
     }

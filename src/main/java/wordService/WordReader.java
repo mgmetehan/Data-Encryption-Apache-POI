@@ -1,6 +1,5 @@
 package wordService;
 
-import development.TcNoValidation;
 import org.apache.poi.xwpf.usermodel.XWPFDocument;
 import org.apache.poi.xwpf.usermodel.XWPFParagraph;
 
@@ -11,18 +10,22 @@ import java.util.List;
 
 public class WordReader {
     public void ReadData(String filePath) {
-        TcNoValidation validation = new TcNoValidation();
+        WordTcValidation validation = new WordTcValidation();
         WordWriter wwriter = new WordWriter();
         String result = "";
+        String[] splitWords;
         Boolean check;
         try {
             XWPFDocument doc = new XWPFDocument(Files.newInputStream(Paths.get(filePath)));
             List<XWPFParagraph> list = doc.getParagraphs();
             for (XWPFParagraph paragraph : list) {
                 result = paragraph.getText();
-                check = validation.TcNoCheck(result);
-                if (check) {
-                    wwriter.updateDocument(filePath, result);
+                splitWords = result.split("\\s+");
+                for (int i = 0; i < splitWords.length; i++) {
+                    check = validation.TcNoCheck(splitWords[i]);
+                    if (check) {
+                        wwriter.updateDocument(filePath, splitWords[i]);
+                    }
                 }
             }
         } catch (IOException e) {
