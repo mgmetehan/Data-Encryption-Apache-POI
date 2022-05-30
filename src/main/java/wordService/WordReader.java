@@ -22,6 +22,9 @@ public class WordReader {
                 result = paragraph.getText();
                 splitWords = result.split("\\s+");
                 for (int i = 0; i < splitWords.length; i++) {
+                    if (splitWords[i] == null) {
+                        continue;
+                    }
                     check = validation.TcNoCheck(splitWords[i]);
                     if (check) {
                         wwriter.updateDocument(filePath, splitWords[i]);

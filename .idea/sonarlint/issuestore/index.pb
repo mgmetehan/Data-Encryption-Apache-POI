@@ -14,11 +14,7 @@ h
 e
 5src/main/java/development/word/update/UpdateWord.java,9\e\9e927c2cf091387dd49fdebd2226126068663f5e
 V
-&src/main/java/excelService/Reader.java,d\5\d58c9ce5003a4489a787ccaa1b1d201a7dc84b85
-V
 &src/main/java/excelService/Writer.java,5\d\5de963dc897728813e56224cb17674e3db06aa33
-T
-$src/main/java/excelService/Main.java,2\8\285a63d47c46ad7dba89e90b0c5ef3e23e90101e
 7
 pom.xml,4\4\442292b8a7efeabbe4cc176709b833b1792140ec
 ]
@@ -27,7 +23,5 @@ $src/main/java/excelService/Main.java,2\8\285a63d47c46ad7dba89e90b0c5ef3e23e901
 ,src/main/java/excelService/TcValidation.java,1\3\131e8d29243b0b4f5b55940e5406c4e2762a7a10
 i
 9src/main/java/development/word/read/WordAllReadDemo3.java,9\e\9e44d04775af24ca3b4abdcc66188d53f473a5b9
-Y
-)src/main/java/wordService/WordWriter.java,5\8\583b51e3f00ccff7b53c34bd7661e791c0cb1159
 _
 /src/main/java/wordService/WordTcValidation.java,1\d\1dc6b3eb83fb692717963c554236fccd8a1b6d21

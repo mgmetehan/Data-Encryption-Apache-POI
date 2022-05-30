@@ -20,6 +20,9 @@ public class WordWriter {
             for (XWPFParagraph xwpfParagraph : xwpfParagraphList) {
                 for (XWPFRun xwpfRun : xwpfParagraph.getRuns()) {
                     String docText = xwpfRun.getText(0);
+                    if (docText == null) {
+                        continue;
+                    }
                     docText = docText.replace(name, "*****");
                     xwpfRun.setText(docText, 0);
                 }
