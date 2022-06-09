@@ -9,8 +9,12 @@ public class Main {
     public static void main(String[] args) {
         String filePath = "C:\\Users\\mgmet\\Desktop\\deneme.xlsx";
 
-        File originalWb = new File("C:\\Users\\mgmet\\Desktop\\deneme.xlsx");
-        File clonedWb = new File("C:\\Users\\mgmet\\Desktop\\deneme_orjinal.xlsx");
+        NewFilePath nFilePath = new NewFilePath();
+        String orjinalPath = nFilePath.createOrjinalFilePath(filePath);
+        String maskPath = nFilePath.createNewFilePath(filePath);
+
+        File originalWb = new File(filePath);
+        File clonedWb = new File(orjinalPath);
         try {
             Files.copy(originalWb.toPath(), clonedWb.toPath());
         } catch (IOException e) {
@@ -19,8 +23,9 @@ public class Main {
 
         Reader r = new Reader();
         r.ReadCellData(filePath);
-        originalWb.renameTo(new File("C:\\Users\\mgmet\\Desktop\\deneme_mask.xlsx"));
-        clonedWb.renameTo(new File("C:\\Users\\mgmet\\Desktop\\deneme.xlsx"));
+
+        originalWb.renameTo(new File(maskPath));
+        clonedWb.renameTo(new File(filePath));
         //ör tc 22260299888 / 11118495268
     }
 }

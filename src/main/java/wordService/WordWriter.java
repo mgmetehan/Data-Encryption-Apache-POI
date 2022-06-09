@@ -12,7 +12,6 @@ import java.util.List;
 
 public class WordWriter {
     public void updateDocument(String input, String name) {
-        NewFilePath nFilePath = new NewFilePath();
         try {
             XWPFDocument doc = new XWPFDocument(Files.newInputStream(Paths.get(input)));
             List<XWPFParagraph> xwpfParagraphList = doc.getParagraphs();
@@ -29,8 +28,7 @@ public class WordWriter {
             }
             System.out.println("Word is updated successfully");
             // save the docs
-            String output = nFilePath.createNewFilePath(input);
-            FileOutputStream out = new FileOutputStream(output);
+            FileOutputStream out = new FileOutputStream(input);
             doc.write(out);
         } catch (IOException e) {
             throw new RuntimeException(e);
