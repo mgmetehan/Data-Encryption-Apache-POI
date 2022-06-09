@@ -1,12 +1,10 @@
 package wordService;
 
-
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 
 public class Main {
-
     public static void main(String[] args) {
         final String filePath = "C:\\Users\\mgmet\\Desktop\\deneme.docx";
 
@@ -15,7 +13,7 @@ public class Main {
         String maskPath = nFilePath.createNewFilePath(filePath);
 
         File originalWb = new File(filePath);
-        File clonedWb = new File(orjinalPath);
+        File clonedWb = new File(maskPath);
         try {
             Files.copy(originalWb.toPath(), clonedWb.toPath());
         } catch (IOException e) {
@@ -23,10 +21,8 @@ public class Main {
         }
 
         WordReader r = new WordReader();
-        r.ReadData(filePath);
+        r.ReadData(clonedWb.getAbsolutePath());
         originalWb.renameTo(new File(filePath));
-        clonedWb.renameTo(new File(maskPath));
-
         //ör tc 22260299888 / 11118495268
     }
 }

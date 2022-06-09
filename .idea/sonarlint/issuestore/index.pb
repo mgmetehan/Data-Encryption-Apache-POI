@@ -29,17 +29,7 @@ V
 ,src/main/java/excelService/TcValidation.java,1\3\131e8d29243b0b4f5b55940e5406c4e2762a7a10
 V
 &src/main/java/excelService/Writer.java,5\d\5de963dc897728813e56224cb17674e3db06aa33
-Y
-)src/main/java/wordService/WordReader.java,0\9\0905108fbb6929f624f42e7523b85463249f1e34
-_
-/src/main/java/wordService/WordTcValidation.java,1\d\1dc6b3eb83fb692717963c554236fccd8a1b6d21
-Y
-)src/main/java/wordService/WordWriter.java,5\8\583b51e3f00ccff7b53c34bd7661e791c0cb1159
 [
 +src/main/java/excelService/NewFilePath.java,a\9\a9c35afed521e37c3909761c89adbedee3a701c4
-Z
-*src/main/java/wordService/NewFilePath.java,4\5\4539dcf6af8acefb56e3b7503d0e23f6958992b0
 T
 $src/main/java/excelService/Main.java,2\8\285a63d47c46ad7dba89e90b0c5ef3e23e90101e
-S
-#src/main/java/wordService/Main.java,1\7\17ef5afabbb9a1d7925715ab87d29965df117c86
