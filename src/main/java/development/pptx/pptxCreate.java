@@ -1,4 +1,4 @@
-package powerpointService;
+package development.pptx;
 
 import org.apache.poi.xslf.usermodel.XMLSlideShow;
 import org.apache.poi.xslf.usermodel.XSLFSlide;
