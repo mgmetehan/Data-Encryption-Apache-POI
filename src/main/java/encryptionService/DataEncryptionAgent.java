@@ -1,14 +1,17 @@
-package AgentWord;
+package encryptionService;
 
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 
-public class AgentWord {
-    public void Agent(String foundText, String filePath) {
+public class DataEncryptionAgent {
+    public static void main(String[] args) {
+        DataEncryptionAgent agent = new DataEncryptionAgent();
+        agent.EncryptionAgent("Metehan","C:\\Users\\mgmet\\Desktop\\deneme.docx");
+    }
+    public void EncryptionAgent(String foundText, String filePath) {
 
         NewFilePath nFilePath = new NewFilePath();
-        String orjinalPath = nFilePath.createOrjinalFilePath(filePath);
         String maskPath = nFilePath.createNewFilePath(filePath);
 
         File originalWb = new File(filePath);
@@ -21,6 +24,5 @@ public class AgentWord {
 
         WordReader r = new WordReader();
         r.ReadData(foundText,clonedWb.getAbsolutePath());
-        originalWb.renameTo(new File(filePath));
     }
 }

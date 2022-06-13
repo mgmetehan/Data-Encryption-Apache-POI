@@ -1,4 +1,4 @@
-package AgentWord;
+package encryptionService;
 
 public class NewFilePath {
     public static String createNewFilePath(String path) {
