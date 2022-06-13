@@ -61,13 +61,5 @@ S
 #src/main/java/wordService/Main.java,1\7\17ef5afabbb9a1d7925715ab87d29965df117c86
 Y
 )src/main/java/wordService/WordReader.java,0\9\0905108fbb6929f624f42e7523b85463249f1e34
-`
-0src/main/java/encryptionService/NewFilePath.java,8\2\82629748d5df935e50b2af8d2431980046e5c948
-_
-/src/main/java/encryptionService/WordReader.java,7\7\77930182237f3c5cb765f7824bd1c2687b3e42d5
-_
-/src/main/java/encryptionService/WordWriter.java,4\b\4b57c447a9266cab7899a1a5a2abaa590217af39
-h
-8src/main/java/encryptionService/DataEncryptionAgent.java,8\3\8348fe7726a0dab6e691cf9a737e52f288b10ab6
 T
 $src/main/java/excelService/Main.java,2\8\285a63d47c46ad7dba89e90b0c5ef3e23e90101e
