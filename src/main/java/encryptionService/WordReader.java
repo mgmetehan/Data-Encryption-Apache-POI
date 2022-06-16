@@ -10,6 +10,7 @@ import java.util.List;
 
 public class WordReader {
     public void ReadData(String foundText, String path) {
+        TcValidation TcValidation = new TcValidation();
         WordWriter wwriter = new WordWriter();
         String result = "";
         String[] splitWords;
@@ -25,6 +26,9 @@ public class WordReader {
                         continue;
                     }
                     check = splitWords[i].equals(foundText);
+                    if (TcValidation.TcNoCheck(result)) {
+                        wwriter.updateDocument(path, splitWords[i]);
+                    }
                     if (check) {
                         wwriter.updateDocument(path, splitWords[i]);
                     }

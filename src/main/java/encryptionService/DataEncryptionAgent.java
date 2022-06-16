@@ -8,7 +8,7 @@ public class DataEncryptionAgent {
     public static void main(String[] args) {
         DataEncryptionAgent agent = new DataEncryptionAgent();
         String filePath = "C:\\Users\\mgmet\\Desktop\\deneme.xlsx";
-        agent.EncryptionAgent("Metehan", filePath);
+        agent.EncryptionAgent("Gültekin", filePath);
     }
 
     //xlsx docx

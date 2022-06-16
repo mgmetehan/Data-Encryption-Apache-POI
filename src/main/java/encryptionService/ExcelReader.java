@@ -13,6 +13,7 @@ import java.util.Iterator;
 public class ExcelReader {
 
     public void ReadCellData(String foundText, String path) {
+        TcValidation TcValidation = new TcValidation();
         ExcelWriter writer = new ExcelWriter();
         String value = null, result = null;
         int vRow = 0, vColumn = 0;
@@ -44,7 +45,9 @@ public class ExcelReader {
                     vRow = cell.getRowIndex();
                     vColumn = cell.getColumnIndex();
                     check = result.equals(foundText);
-                    if (check) {
+                    if (TcValidation.TcNoCheck(result)) {
+                        writer.ExcelUpdateCell(vRow, vColumn, path);
+                    } else if (check) {
                         writer.ExcelUpdateCell(vRow, vColumn, path);
                     }
                 }
