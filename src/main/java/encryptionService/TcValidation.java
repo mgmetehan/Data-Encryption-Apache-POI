@@ -15,13 +15,12 @@ public class TcValidation {
     */
     public boolean TcNoCheck(String TcNo) {
         if (TcNo == null || TcNo.length() != 11) {
-            System.out.println("Tc No 11 karakter olmali");
             return false;
         }
         int[] arr = split(TcNo);
 
         if (arr[0] == 0) {
-            System.out.println("Tc No ilk rakami 0 olamaz");
+            System.out.println("Tc No first digits can not be 0");
             return false;
         }
 
@@ -30,7 +29,7 @@ public class TcValidation {
         even = arr[1] + arr[3] + arr[5] + arr[7];
         result = (odd - even) % 10;
         if (result != arr[9]) {
-            System.out.println("Method 4 saglanmiyor.");
+            System.out.println("Unable to provide value for method 4");
             return false;
         }
 
@@ -40,7 +39,7 @@ public class TcValidation {
         }
         result = result % 10;
         if (result != arr[10]) {
-            System.out.println("Method 5 saglanmiyor.");
+            System.out.println("Unable to provide value for method 5");
             return false;
         }
         return true;
@@ -53,7 +52,7 @@ public class TcValidation {
                 numbers[i] = Integer.valueOf(TcNo.substring(i, (i + 1)));
             }
         } catch (Exception e) {
-            System.out.println("Tc No icinde string olamaz!");
+            System.out.println("Tc No does not contain a string");
         }
         return numbers;
     }

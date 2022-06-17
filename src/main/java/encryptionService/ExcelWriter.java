@@ -10,7 +10,7 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 
 public class ExcelWriter {
-    public void ExcelUpdateCell(int vRow, int vColumn,String filePath) {
+    public void ExcelUpdateCell(int vRow, int vColumn, String filePath) {
         try {
             FileInputStream fis = new FileInputStream(new File(filePath));
             XSSFWorkbook workbook = new XSSFWorkbook(fis);
@@ -26,7 +26,6 @@ public class ExcelWriter {
             System.out.println("Excel is updated successfully");
             fileOut.close();
             workbook.close();
-
         } catch (Exception e) {
             e.printStackTrace();
         }
