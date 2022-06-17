@@ -10,40 +10,14 @@ public class DataEncryptionAgent {
         DataEncryptionAgent agent = new DataEncryptionAgent();
         ArrayList arr = new ArrayList();
         ArrayList noWhiteSpace = new ArrayList();
-        arr.add(" Ceren ");
-        arr.add("Yılmaz");
-        arr.add("Ayşe");
-        arr.add("Mete");
-        arr.add("Batı");
-        arr.add("kuzey");
-        arr.add("Anadolu");
-        arr.add("Mehmet");
-        arr.add("bağlı");
-        arr.add("Yılmaz");
-        arr.add("Karadeniz");
-        arr.add("Emre");
-        arr.add("büyük");
-        arr.add("mg@gmail.com");
-        arr.add("heyhey@gotmail.com");
-        arr.add("İl");
-        arr.add("Türkiye");
-        arr.add("Ankara");
-        arr.add("Bolu,");
-        arr.add("Çankırı");
-        arr.add("Kırıkkale");
-        arr.add("Kırşehir");
-        arr.add("Aksaray");
-        arr.add("Konya");
-        arr.add("Eskişehir");
-        arr.add("yer");
-        arr.add("belediye");
+        arr.add("31.08.2000");
 
         for (int i = 0; i < arr.size(); i++) {
             String str = (String) arr.get(i);
             str = str.replaceAll("\\s", "");
             noWhiteSpace.add(str);
         }
-        String filePath = "C:\\Users\\mgmet\\Desktop\\deneme.docx";
+        String filePath = "C:\\Users\\mgmet\\Desktop\\customer.xlsx";
         agent.EncryptionAgent(noWhiteSpace, filePath);
     }
 
