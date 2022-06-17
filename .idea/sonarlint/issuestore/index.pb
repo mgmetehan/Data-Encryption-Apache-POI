@@ -77,3 +77,7 @@ Y
 0src/main/java/encryptionService/NewFilePath.java,8\2\82629748d5df935e50b2af8d2431980046e5c948
 a
 1src/main/java/encryptionService/TcValidation.java,a\6\a614c61b34739ef0b1c290607f5f1f3af63049e3
+_
+/src/main/java/encryptionService/WordWriter.java,4\b\4b57c447a9266cab7899a1a5a2abaa590217af39
+_
+/src/main/java/encryptionService/WordReader.java,7\7\77930182237f3c5cb765f7824bd1c2687b3e42d5

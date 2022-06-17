@@ -9,17 +9,42 @@ public class DataEncryptionAgent {
     public static void main(String[] args) {
         DataEncryptionAgent agent = new DataEncryptionAgent();
         ArrayList arr = new ArrayList();
-        arr.add("Metehan");
-        arr.add("Gültekin");
-        arr.add("mg@hotmail.com");
-        arr.add("5552540000");
-        arr.add("Levent");
-        arr.add("60286499621");
-        arr.add("Merve");
-        arr.add("5315957540");
+        ArrayList noWhiteSpace = new ArrayList();
+        arr.add(" Ceren ");
+        arr.add("Yılmaz");
+        arr.add("Ayşe");
+        arr.add("Mete");
+        arr.add("Batı");
+        arr.add("kuzey");
+        arr.add("Anadolu");
+        arr.add("Mehmet");
+        arr.add("bağlı");
+        arr.add("Yılmaz");
+        arr.add("Karadeniz");
+        arr.add("Emre");
+        arr.add("büyük");
+        arr.add("mg@gmail.com");
+        arr.add("heyhey@gotmail.com");
+        arr.add("İl");
+        arr.add("Türkiye");
+        arr.add("Ankara");
+        arr.add("Bolu,");
+        arr.add("Çankırı");
+        arr.add("Kırıkkale");
+        arr.add("Kırşehir");
+        arr.add("Aksaray");
+        arr.add("Konya");
+        arr.add("Eskişehir");
+        arr.add("yer");
+        arr.add("belediye");
 
-        String filePath = "C:\\Users\\mgmet\\Desktop\\deneme.xlsx";
-        agent.EncryptionAgent(arr, filePath);
+        for (int i = 0; i < arr.size(); i++) {
+            String str = (String) arr.get(i);
+            str = str.replaceAll("\\s", "");
+            noWhiteSpace.add(str);
+        }
+        String filePath = "C:\\Users\\mgmet\\Desktop\\deneme.docx";
+        agent.EncryptionAgent(noWhiteSpace, filePath);
     }
 
     //xlsx docx
