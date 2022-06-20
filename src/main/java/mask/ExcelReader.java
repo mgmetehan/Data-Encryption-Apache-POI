@@ -1,4 +1,6 @@
 package mask;
+/*
+package com.omreon.filediscoveryagent.mask;
 
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.CellType;
@@ -22,9 +24,8 @@ public class ExcelReader {
         Iterator<Cell> cellIterator;
 
         String value = null, result = null;
-        int vRow = 0, vColumn = 0;
-        boolean check;
         String foundText = null;
+        String[] splited;
         try {
             for (int j = 0; j < arrList.size(); j++) {
                 foundText = (String) arrList.get(j);
@@ -51,15 +52,13 @@ public class ExcelReader {
                                 result += String.valueOf(value.charAt(i));
                             }
                         }
-                        vRow = cell.getRowIndex();
-                        vColumn = cell.getColumnIndex();
-                        check = result.equals(foundText);
-                        if (check) {
-                            writer.ExcelUpdateCell(vRow, vColumn, path);
+                        if (!result.trim().isEmpty()) {
+                            splited = result.split("\\s+");
+                            for (int i = 0; i < splited.length; i++) {
+                                ExcelUpdate(cell.getRowIndex(), cell.getColumnIndex(), splited[i].equals(foundText), splited[i], path);
+                            }
                         }
-                        if (TcValidation.TcNoCheck(result)) {
-                            writer.ExcelUpdateCell(vRow, vColumn, path);
-                        }
+                        ExcelUpdate(cell.getRowIndex(), cell.getColumnIndex(), result.equals(foundText), result, path);
                     }
                 }
                 file.close();
@@ -68,4 +67,17 @@ public class ExcelReader {
             e.printStackTrace();
         }
     }
+
+    public void ExcelUpdate(int vRow, int vColumn, boolean check, String result, String path) {
+        ExcelWriter writer = new ExcelWriter();
+        TcValidation TcValidation = new TcValidation();
+
+        if (check) {
+            writer.ExcelUpdateCell(vRow, vColumn, path);
+        }
+        if (TcValidation.TcNoCheck(result)) {
+            writer.ExcelUpdateCell(vRow, vColumn, path);
+        }
+    }
 }
+*/

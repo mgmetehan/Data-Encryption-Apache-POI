@@ -1,9 +1,5 @@
 package encryptionService;
 
-import mask.ExcelReader;
-import mask.NewFilePath;
-import mask.WordReader;
-
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -27,7 +23,7 @@ public class DataEncryptionAgent {
 
     // private FileDiscoveryHelper fileDiscoveryHelper;
     public void EncryptionAgent(ArrayList arrList, String filePath, String token) {
-        mask.NewFilePath nFilePath = new NewFilePath();
+        NewFilePath nFilePath = new NewFilePath();
         ArrayList noWhiteSpaceList = new ArrayList();
         String str;
 
@@ -56,10 +52,10 @@ public class DataEncryptionAgent {
         }
         System.out.println(noWhiteSpaceList.size() + " " + noWhiteSpaceList);
         if (type.equals("xlsx")) {
-            mask.ExcelReader er = new ExcelReader();
+            ExcelReader er = new ExcelReader();
             er.ReadCellData(noWhiteSpaceList, clonedWb.getAbsolutePath());
         } else if (type.equals("docx")) {
-            mask.WordReader wr = new WordReader();
+            WordReader wr = new WordReader();
             wr.ReadData(noWhiteSpaceList, clonedWb.getAbsolutePath());
         }
     }

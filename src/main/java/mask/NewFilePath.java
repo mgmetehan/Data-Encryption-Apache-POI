@@ -1,4 +1,6 @@
 package mask;
+/*
+package com.omreon.filediscoveryagent.mask;
 
 public class NewFilePath {
     public static String createNewFilePath(String path) {
@@ -28,3 +30,4 @@ public class NewFilePath {
         return null;
     }
 }
+*/

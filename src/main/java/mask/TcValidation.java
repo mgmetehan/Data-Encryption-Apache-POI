@@ -1,7 +1,12 @@
 package mask;
 
+/*
+
+package com.omreon.filediscoveryagent.mask;
+
 public class TcValidation {
-    /*
+    */
+/*
    1 – TC Kimlik Numaralari 11 karakter olmak zorundadir.
 
    2 – Her hanesi bir rakam olmaldir.
@@ -12,7 +17,8 @@ public class TcValidation {
    sonucun 10’a bolumunden kalan sayi (MOD10)  10. basamaktaki sayiyi vermelidir.
 
    5 – İlk 10 hanenin toplamindan elde edilen sonucun 10’a bolumunden kalan sayi (MOD10) 11. basamaktaki sayiyi vermelidir.
-    */
+    *//*
+
     public boolean TcNoCheck(String TcNo) {
         if (TcNo == null || TcNo.length() != 11) {
             return false;
@@ -57,3 +63,4 @@ public class TcValidation {
         return numbers;
     }
 }
+        */

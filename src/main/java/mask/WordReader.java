@@ -1,4 +1,6 @@
 package mask;
+/*
+package com.omreon.filediscoveryagent.mask;
 
 import org.apache.poi.xwpf.usermodel.XWPFDocument;
 import org.apache.poi.xwpf.usermodel.XWPFParagraph;
@@ -43,4 +45,4 @@ public class WordReader {
             throw new RuntimeException(e);
         }
     }
-}
+}*/

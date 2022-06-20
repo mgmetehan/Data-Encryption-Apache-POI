@@ -1,25 +1,36 @@
 package mask;
+/*
+package com.omreon.filediscoveryagent.mask;
+
+import com.omreon.filediscoveryagent.beans.FileDiscoveryResult;
+import com.omreon.filediscoveryagent.utils.FileDiscoveryHelper;
 
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.util.ArrayList;
+import java.util.List;
 
 public class DataEncryptionAgent {
-    //xlsx docx
-   // private FileDiscoveryHelper fileDiscoveryHelper;
-    public void EncryptionAgent(ArrayList arrList, String filePath,String token) {
+    private FileDiscoveryHelper fileDiscoveryHelper;
+
+    public void EncryptionAgent(String token, List<FileDiscoveryResult> fileDiscoveryResults) {
         NewFilePath nFilePath = new NewFilePath();
         ArrayList noWhiteSpaceList = new ArrayList();
-        String str;
+        String str, filePath;
+        ArrayList arrList = null;
 
-        /*
+        if (fileDiscoveryResults != null && fileDiscoveryResults.size() > 0) {
+            String json = FileDiscoveryHelper.generateJsonString(fileDiscoveryResults);
+            String responseStr = fileDiscoveryHelper.invokeAPI(token, "POST", FileDiscoveryHelper.FILE_DISCOVERY_MASK_URL, json);
+            System.out.println("ID: " + responseStr);
+        }
 
-        String json = FileDiscoveryHelper.generateJsonString(fileDiscoveryResults);
-        String responseStr = fileDiscoveryHelper.invokeAPI(token, "POST", FileDiscoveryHelper.FILE_DISCOVERY_MASK_URL, json);
-        System.out.println("ID: " + responseStr);
+        for (int i = 0; i < fileDiscoveryResults.size(); i++) {
+            arrList.add(fileDiscoveryResults.get(i).getFoundText());
+        }
+        filePath = fileDiscoveryResults.get(0).getFileFullPath();
 
-         */
 
         String type = nFilePath.typeOfFile(filePath);
         String maskPath = nFilePath.createNewFilePath(filePath);
@@ -46,3 +57,4 @@ public class DataEncryptionAgent {
         }
     }
 }
+*/
