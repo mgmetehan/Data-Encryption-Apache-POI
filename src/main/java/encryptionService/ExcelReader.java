@@ -1,7 +1,5 @@
 package encryptionService;
 
-import mask.ExcelWriter;
-import mask.TcValidation;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.CellType;
 import org.apache.poi.ss.usermodel.Row;
@@ -15,8 +13,8 @@ import java.util.Iterator;
 
 public class ExcelReader {
     public void ReadCellData(ArrayList arrList, String path) {
-        mask.TcValidation TcValidation = new mask.TcValidation();
-        mask.ExcelWriter writer = new mask.ExcelWriter();
+        TcValidation TcValidation = new TcValidation();
+        ExcelWriter writer = new ExcelWriter();
         FileInputStream file;
         XSSFWorkbook workbook;
         XSSFSheet sheet;
@@ -69,8 +67,8 @@ public class ExcelReader {
     }
 
     public void ExcelUpdate(int vRow, int vColumn, boolean check, String result, String path) {
-        mask.ExcelWriter writer = new ExcelWriter();
-        mask.TcValidation TcValidation = new TcValidation();
+        ExcelWriter writer = new ExcelWriter();
+        TcValidation TcValidation = new TcValidation();
 
         if (check) {
             writer.ExcelUpdateCell(vRow, vColumn, path);

@@ -4,8 +4,10 @@ import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.util.ArrayList;
+import java.util.List;
 
 public class DataEncryptionAgent {
+    //private FileDiscoveryHelper fileDiscoveryHelper;
     public static void main(String[] args) {
         DataEncryptionAgent agent = new DataEncryptionAgent();
         ArrayList arr = new ArrayList();
@@ -21,19 +23,30 @@ public class DataEncryptionAgent {
         agent.EncryptionAgent(noWhiteSpace, filePath, token);
     }
 
-    // private FileDiscoveryHelper fileDiscoveryHelper;
     public void EncryptionAgent(ArrayList arrList, String filePath, String token) {
+        //public void EncryptionAgent(String token, List<FileDiscoveryResult> fileDiscoveryResults) {
         NewFilePath nFilePath = new NewFilePath();
         ArrayList noWhiteSpaceList = new ArrayList();
         String str;
+        //String filePath;
+        //ArrayList arrList = new ArrayList<>();
+
+      /*
+      if (fileDiscoveryResults != null && fileDiscoveryResults.size() > 0) {
+            String json = FileDiscoveryHelper.generateJsonString(fileDiscoveryResults);
+            String responseStr = fileDiscoveryHelper.invokeAPI(token, "POST", FileDiscoveryHelper.FILE_DISCOVERY_MASK_URL, json);
+            System.out.println("ID: " + responseStr);
+        }
+        */
+
 
         /*
+        for (int i = 0; i < fileDiscoveryResults.size(); i++) {
+            arrList.add(fileDiscoveryResults.get(i).getFoundText());
+        }
+        filePath = fileDiscoveryResults.get(0).getFileFullPath();
+        */
 
-        String json = FileDiscoveryHelper.generateJsonString(fileDiscoveryResults);
-        String responseStr = fileDiscoveryHelper.invokeAPI(token, "POST", FileDiscoveryHelper.FILE_DISCOVERY_MASK_URL, json);
-        System.out.println("ID: " + responseStr);
-
-         */
 
         String type = nFilePath.typeOfFile(filePath);
         String maskPath = nFilePath.createNewFilePath(filePath);

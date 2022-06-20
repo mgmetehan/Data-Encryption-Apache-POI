@@ -12,19 +12,24 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class DataEncryptionAgent {
-    private FileDiscoveryHelper fileDiscoveryHelper;
+    //private FileDiscoveryHelper fileDiscoveryHelper;
 
     public void EncryptionAgent(String token, List<FileDiscoveryResult> fileDiscoveryResults) {
         NewFilePath nFilePath = new NewFilePath();
         ArrayList noWhiteSpaceList = new ArrayList();
         String str, filePath;
-        ArrayList arrList = null;
+        ArrayList arrList = new ArrayList<>();
 
-        if (fileDiscoveryResults != null && fileDiscoveryResults.size() > 0) {
+      */
+/*
+      if (fileDiscoveryResults != null && fileDiscoveryResults.size() > 0) {
             String json = FileDiscoveryHelper.generateJsonString(fileDiscoveryResults);
             String responseStr = fileDiscoveryHelper.invokeAPI(token, "POST", FileDiscoveryHelper.FILE_DISCOVERY_MASK_URL, json);
             System.out.println("ID: " + responseStr);
         }
+        *//*
+
+
 
         for (int i = 0; i < fileDiscoveryResults.size(); i++) {
             arrList.add(fileDiscoveryResults.get(i).getFoundText());

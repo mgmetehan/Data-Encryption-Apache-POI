@@ -35,7 +35,7 @@ public class TcValidation {
         even = arr[1] + arr[3] + arr[5] + arr[7];
         result = (odd - even) % 10;
         if (result != arr[9]) {
-            System.out.println("Unable to provide value for method 4");
+            System.out.println("Unable to provide value for TC method 4");
             return false;
         }
 
@@ -45,7 +45,7 @@ public class TcValidation {
         }
         result = result % 10;
         if (result != arr[10]) {
-            System.out.println("Unable to provide value for method 5");
+            System.out.println("Unable to provide value for TC method 5");
             return false;
         }
         return true;
