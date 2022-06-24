@@ -95,3 +95,11 @@ h
 8src/main/java/encryptionService/DataEncryptionAgent.java,8\3\8348fe7726a0dab6e691cf9a737e52f288b10ab6
 [
 +src/main/java/mask/DataEncryptionAgent.java,4\3\43849fe55309c45a752076ac860a3f658d6bf89d
+h
+8src/main/java/development/word/read/WordAllReadDemo.java,a\8\a8f5d3bfc25a47f9996cd4b3c323bf6b1d196e55
+O
+src/main/java/pdf/Pdf2Word.java,7\0\70bf7af01caecc5096f3bbb9cdfed54beae71cca
+O
+src/main/java/pdf/Word2Pdf.java,8\7\8718057ca195d48505523d7661d5c4c64f396358
+N
+src/main/java/pdf/WordPdf.java,3\5\35339c528b2caa9bc9c032e994155a6433a0e795

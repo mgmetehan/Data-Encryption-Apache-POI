@@ -1,45 +1,32 @@
 package pdf;
-/*
-import org.docx4j.Docx4J;
-import org.docx4j.openpackaging.packages.WordprocessingMLPackage;
-import org.docx4j.openpackaging.parts.WordprocessingML.MainDocumentPart;
 
-import java.io.*;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.File;
+
+import fr.opensagres.poi.xwpf.converter.pdf.PdfOptions;
+import fr.opensagres.poi.xwpf.converter.pdf.PdfConverter;
+
+import org.apache.poi.xwpf.usermodel.XWPFDocument;
 
 public class WordPdf {
-    private static final String filePath = "C:\\Users\\mgmet\\Desktop\\deneme.docx";
-    private static final String outPath = "C:\\Users\\mgmet\\Desktop\\deneme.pdf";
+    private static final String docPath = "C:\\Users\\mgmet\\Desktop\\deneme.docx";
+    private static final String pdfPath = "C:\\Users\\mgmet\\Desktop\\deneme.pdf";
 
 
-    public static void main(String[] args) {
-       /try {
-            InputStream docFile = new FileInputStream(new File(filePath));
-            XWPFDocument doc = new XWPFDocument(docFile);
-            PdfOptions pdfOptions = PdfOptions.create();
-            OutputStream out = new FileOutputStream(new File(outPath));
-            PdfConverter.getInstance().convert(doc, out, pdfOptions);
-            doc.close();
-            out.close();
-            System.out.println("Done");
+    public static void main(String[] args) throws Exception {
 
-        } catch (Exception e) {
-            System.out.println(e);
-        }
+        InputStream in = new FileInputStream(new File(docPath));
+        XWPFDocument document = new XWPFDocument(in);
+        PdfOptions options = PdfOptions.create();
+        OutputStream out = new FileOutputStream(new File(pdfPath));
+        PdfConverter.getInstance().convert(document, out, options);
+
+        document.close();
+        out.close();
+
+
     }
-        try {
-            InputStream templateInputStream = new FileInputStream(filePath);
-            WordprocessingMLPackage wordMLPackage = WordprocessingMLPackage.load(templateInputStream);
-            MainDocumentPart documentPart = wordMLPackage.getMainDocumentPart();
-
-            FileOutputStream os = new FileOutputStream(outPath);
-            Docx4J.toPDF(wordMLPackage, os);
-            os.flush();
-            os.close();
-        } catch (Throwable e) {
-
-            e.printStackTrace();
-        }
-    }
-
 }
-*/
