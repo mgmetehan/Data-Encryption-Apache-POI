@@ -5,8 +5,6 @@ e
 5src/main/java/development/excel/Tc/ReadCellAndTc.java,8\1\817f6428fc361895d477f359b49fe9d86b5c986d
 e
 5src/main/java/development/word/update/UpdateWord.java,9\e\9e927c2cf091387dd49fdebd2226126068663f5e
-7
-pom.xml,4\4\442292b8a7efeabbe4cc176709b833b1792140ec
 ]
 -src/main/java/development/TcNoValidation.java,5\4\54315fefa2e10f164f6c9aeea120bfbec83769a9
 i
@@ -37,8 +35,6 @@ k
 ;src/main/java/development/excel/update/ExcelUpdateCell.java,e\e\ee1ce637d546046f81f3b30eb76af2c3cbc17c09
 j
 :src/main/java/development/excel/update/UpdateRowExcel.java,2\4\24c02c9ce1c9cdb7c2b8e48ced609bc09475da6d
-h
-8src/main/java/development/word/read/WordAllReadDemo.java,a\8\a8f5d3bfc25a47f9996cd4b3c323bf6b1d196e55
 i
 9src/main/java/development/word/read/WordAllReadDemo1.java,b\7\b7f4ed2537d3218f2b1c138989787515faf96a48
 i
@@ -89,3 +85,9 @@ R
 "src/main/java/mask/WordReader.java,7\0\7056d65ab3e07b6076462ac9ac2097be1c5ec53c
 R
 "src/main/java/mask/WordWriter.java,3\0\306a0bbd250176796aade29ddff51a1c28f6a16d
+T
+$src/main/java/mask/TcValidation.java,e\0\e0e0a3e96e4d712b9cf771524b23ef19867fd45a
+a
+1src/main/java/encryptionService/TcValidation.java,a\6\a614c61b34739ef0b1c290607f5f1f3af63049e3
+`
+0src/main/java/encryptionService/ExcelReader.java,8\f\8fe86ce0b36e8c6947218704460925289728dad2
