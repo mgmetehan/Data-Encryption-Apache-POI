@@ -1,5 +1,5 @@
 package pdf;
-
+/*
 import org.docx4j.Docx4J;
 import org.docx4j.openpackaging.packages.WordprocessingMLPackage;
 import org.docx4j.openpackaging.parts.WordprocessingML.MainDocumentPart;
@@ -12,7 +12,7 @@ public class WordPdf {
 
 
     public static void main(String[] args) {
-       /* try {
+       /try {
             InputStream docFile = new FileInputStream(new File(filePath));
             XWPFDocument doc = new XWPFDocument(docFile);
             PdfOptions pdfOptions = PdfOptions.create();
@@ -25,7 +25,7 @@ public class WordPdf {
         } catch (Exception e) {
             System.out.println(e);
         }
-    }*/
+    }
         try {
             InputStream templateInputStream = new FileInputStream(filePath);
             WordprocessingMLPackage wordMLPackage = WordprocessingMLPackage.load(templateInputStream);
@@ -42,3 +42,4 @@ public class WordPdf {
     }
 
 }
+*/
