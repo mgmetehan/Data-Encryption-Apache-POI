@@ -1,4 +1,4 @@
-package pdf;
+package pdf.pdfBox;
 
 import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.text.PDFTextStripper;
@@ -24,14 +24,13 @@ public class GetCharLocationAndSize extends PDFTextStripper {
      */
     public static void main(String[] args) throws IOException {
         PDDocument document = null;
-        String fileName ="C:\\Users\\mgmet\\Desktop\\deneme.pdf";
+        String fileName = "C:\\Users\\mgmet\\Desktop\\deneme.pdf";
         try {
             document = PDDocument.load(new File(fileName));
             PDFTextStripper stripper = new GetCharLocationAndSize();
             stripper.setSortByPosition(true);
             stripper.setStartPage(0);
             stripper.setEndPage(document.getNumberOfPages());
-
             Writer dummy = new OutputStreamWriter(new ByteArrayOutputStream());
             stripper.writeText(document, dummy);
         } finally {
@@ -46,10 +45,13 @@ public class GetCharLocationAndSize extends PDFTextStripper {
      */
     @Override
     protected void writeString(String string, List<TextPosition> textPositions) throws IOException {
+        System.out.println(textPositions.get(0).getPageWidth() + " " + textPositions.get(0).getPageHeight());
+
         for (TextPosition text : textPositions) {
             System.out.println(text.getUnicode() + " [(X=" + text.getXDirAdj() + ",Y=" +
                     text.getYDirAdj() + ") height=" + text.getHeightDir() + " width=" +
                     text.getWidthDirAdj() + "]");
         }
+
     }
 }
