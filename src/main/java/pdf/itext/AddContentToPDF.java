@@ -34,11 +34,22 @@ public class AddContentToPDF {
             // draw a red circle
             over.setRGBColorStroke(0xFF, 0x00, 0x00);
             over.setLineWidth(5f);
-            over.ellipse(250, 450, 350, 550);
+            over.rectangle(478, 673, 10, 20);
             over.stroke();
         }
 
         stamper.close();
 
+    }
+    public static void drawRectangle(PdfContentByte content, float width, float height) {
+        content.saveState();
+        PdfGState state = new PdfGState();
+        state.setFillOpacity(0.6f);
+        content.setGState(state);
+        content.setRGBColorFill(0xFF, 0xFF, 0xFF);
+        content.setLineWidth(3);
+        content.rectangle(478, 673, width, height);
+        content.fillStroke();
+        content.restoreState();
     }
 }

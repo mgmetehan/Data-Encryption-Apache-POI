@@ -15,10 +15,6 @@ i
 ,src/main/java/excelService/TcValidation.java,1\3\131e8d29243b0b4f5b55940e5406c4e2762a7a10
 [
 +src/main/java/excelService/NewFilePath.java,a\9\a9c35afed521e37c3909761c89adbedee3a701c4
-_
-/src/main/java/wordService/WordTcValidation.java,1\d\1dc6b3eb83fb692717963c554236fccd8a1b6d21
-Z
-*src/main/java/wordService/NewFilePath.java,4\5\4539dcf6af8acefb56e3b7503d0e23f6958992b0
 Y
 )src/main/java/development/createFile.java,a\6\a6fd1728aa9122516918f02b8a3880165ad945ea
 g
@@ -39,8 +35,6 @@ i
 9src/main/java/development/word/read/WordAllReadDemo1.java,b\7\b7f4ed2537d3218f2b1c138989787515faf96a48
 i
 9src/main/java/development/word/read/WordAllReadDemo2.java,c\f\cfdbb562a985145dc1a3ec6290ae3536ccee8a6d
-Y
-)src/main/java/wordService/WordWriter.java,5\8\583b51e3f00ccff7b53c34bd7661e791c0cb1159
 V
 &src/main/java/excelService/Writer.java,5\d\5de963dc897728813e56224cb17674e3db06aa33
 a
@@ -51,8 +45,6 @@ r
 Bsrc/main/java/development/pptx/write/pptxWriteTitleAndContent.java,7\6\7613d7b51ccd28070ecc8c53d1bf42cddb9e6258
 ^
 .src/main/java/development/pptx/pptxCreate.java,d\e\de12269921ce53151068deea08f6edbe5798de74
-S
-#src/main/java/wordService/Main.java,1\7\17ef5afabbb9a1d7925715ab87d29965df117c86
 T
 $src/main/java/excelService/Main.java,2\8\285a63d47c46ad7dba89e90b0c5ef3e23e90101e
 T
@@ -89,10 +81,6 @@ T
 $src/main/java/mask/TcValidation.java,e\0\e0e0a3e96e4d712b9cf771524b23ef19867fd45a
 a
 1src/main/java/encryptionService/TcValidation.java,a\6\a614c61b34739ef0b1c290607f5f1f3af63049e3
-`
-0src/main/java/encryptionService/ExcelReader.java,8\f\8fe86ce0b36e8c6947218704460925289728dad2
-h
-8src/main/java/encryptionService/DataEncryptionAgent.java,8\3\8348fe7726a0dab6e691cf9a737e52f288b10ab6
 [
 +src/main/java/mask/DataEncryptionAgent.java,4\3\43849fe55309c45a752076ac860a3f658d6bf89d
 h
