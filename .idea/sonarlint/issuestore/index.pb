@@ -63,8 +63,6 @@ _
 /src/main/java/encryptionService/WordWriter.java,4\b\4b57c447a9266cab7899a1a5a2abaa590217af39
 `
 0src/main/java/encryptionService/NewFilePath.java,8\2\82629748d5df935e50b2af8d2431980046e5c948
-_
-/src/main/java/encryptionService/WordReader.java,7\7\77930182237f3c5cb765f7824bd1c2687b3e42d5
 `
 0src/main/java/encryptionService/ExcelWriter.java,0\3\03fd8b383182e0f4e714b8b0c31508494ea0f25d
 S
@@ -115,8 +113,6 @@ Z
 *src/main/java/pdf/itext/FillRectangle.java,9\d\9d7d777aba06cb018c33bebabf7a5eb2ff7d7f8d
 X
 (src/main/java/pdf/itext/DrawingLine.java,a\f\af2f596ff0add6fa5dd15de47abcd3bfb94e6579
-h
-8src/main/java/encryptionService/DataEncryptionAgent.java,8\3\8348fe7726a0dab6e691cf9a737e52f288b10ab6
 Y
 )src/main/java/pdfService/ExcelReader.java,a\e\aeac9cf50b9e77b8f013715d7b749c59c390c142
 Z

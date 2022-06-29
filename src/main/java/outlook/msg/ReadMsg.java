@@ -8,7 +8,6 @@ import java.util.Iterator;
 import java.util.List;
 
 
-
 public class ReadMsg {
     public static void main(String[] args) {
         try {
@@ -21,6 +20,15 @@ public class ReadMsg {
             String to_list = msg.getDisplayTo();
             String cc_list = msg.getDisplayCc();
             String bcc_list = msg.getDisplayBcc();
+
+
+            String[] splitWords = body.split("\\s+");
+
+            for (String a : splitWords) {
+                System.out.println(a);
+            }
+
+
             List list = msg.getAttachments();
             System.out.println("Attachments -" + list.size());
             Iterator it_list = list.iterator();
@@ -29,6 +37,7 @@ public class ReadMsg {
                 attachemetn = (Attachment) it_list.next();
                 System.out.println(attachemetn);
             }
+
             System.out.println("-----");
             System.out.println("from_email " + from_email);
             System.out.println("from_name " + from_name);
