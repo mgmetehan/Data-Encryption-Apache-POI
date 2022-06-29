@@ -1,6 +1,5 @@
 package pdfService;
 
-
 import org.apache.poi.xwpf.usermodel.XWPFDocument;
 import org.apache.poi.xwpf.usermodel.XWPFParagraph;
 
@@ -31,7 +30,6 @@ public class WordReader {
                             continue;
                         }
                         check = splitWords[i].equals(foundText);
-                        System.out.println("Buldu");
                         if (check) {
                             wwriter.updateDocument(path, splitWords[i]);
                         }

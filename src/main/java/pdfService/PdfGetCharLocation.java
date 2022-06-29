@@ -1,22 +1,16 @@
-package pdf.pdfBox;
+package pdfService;
 
 import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.text.PDFTextStripper;
 import org.apache.pdfbox.text.TextPosition;
+import pdf.pdfBox.GetCharLocationAndSize;
 
-import java.io.ByteArrayOutputStream;
-import java.io.File;
-import java.io.IOException;
-import java.io.OutputStreamWriter;
-import java.io.Writer;
+import java.io.*;
 import java.util.List;
 
-/**
- * This is an example on how to get the x/y coordinates and size of each character in PDF
- */
-public class GetCharLocationAndSize extends PDFTextStripper {
+public class PdfGetCharLocation extends PDFTextStripper {
 
-    public GetCharLocationAndSize() throws IOException {
+    public PdfGetCharLocation() throws IOException {
     }
 
     /**
@@ -48,10 +42,6 @@ public class GetCharLocationAndSize extends PDFTextStripper {
         System.out.println(textPositions.get(0).getPageWidth() + " " + textPositions.get(0).getPageHeight());
 
         for (TextPosition text : textPositions) {
-
-            if(textPositions.equals("Ankara")){
-                break;
-            }
             System.out.println(text.getUnicode() + " [(X=" + text.getXDirAdj() + ",Y=" +
                     text.getYDirAdj() + ") height=" + text.getHeightDir() + " width=" +
                     text.getWidthDirAdj() + "]");

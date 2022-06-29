@@ -7,13 +7,11 @@ import java.util.ArrayList;
 
 public class DataEncryptionAgent {
     public static void main(String[] args) {
-        encryptionService.DataEncryptionAgent agent = new encryptionService.DataEncryptionAgent();
+        DataEncryptionAgent agent = new DataEncryptionAgent();
         ArrayList arr = new ArrayList();
         ArrayList noWhiteSpace = new ArrayList();
         String token = null;
         arr.add("Ankara");
-        arr.add("Ceren");
-
         for (int i = 0; i < arr.size(); i++) {
             String str = (String) arr.get(i);
             str = str.replaceAll("\\s", "");
@@ -24,21 +22,9 @@ public class DataEncryptionAgent {
     }
 
     public void EncryptionAgent(ArrayList arrList, String filePath, String token) {
-        //public void EncryptionAgent(String token, List<FileDiscoveryResult> fileDiscoveryResults) {
-        encryptionService.NewFilePath nFilePath = new encryptionService.NewFilePath();
+        NewFilePath nFilePath = new NewFilePath();
         ArrayList noWhiteSpaceList = new ArrayList();
         String str;
-
-
-        String type = nFilePath.typeOfFile(filePath);
-        String maskPath = nFilePath.createNewFilePath(filePath);
-        File originalWb = new File(filePath);
-        File clonedWb = new File(maskPath);
-        try {
-            Files.copy(originalWb.toPath(), clonedWb.toPath());
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
 
         for (int i = 0; i < arrList.size(); i++) {
             str = (String) arrList.get(i);
@@ -46,11 +32,29 @@ public class DataEncryptionAgent {
             noWhiteSpaceList.add(str);
         }
         System.out.println(noWhiteSpaceList.size() + " " + noWhiteSpaceList);
-        System.out.println("aa");
 
-        WordReader wr = new WordReader();
-        System.out.println("aa");
-        wr.ReadData(noWhiteSpaceList, clonedWb.getAbsolutePath());
+        String type = nFilePath.typeOfFile(filePath);
 
+        if (type.equals("pdf")) {
+
+        } else {
+            String maskPath = nFilePath.createNewFilePath(filePath);
+            File originalWb = new File(filePath);
+            File clonedWb = new File(maskPath);
+            try {
+                Files.copy(originalWb.toPath(), clonedWb.toPath());
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+
+
+            if (type.equals("xlsx")) {
+                ExcelReader er = new ExcelReader();
+                er.ReadCellData(noWhiteSpaceList, clonedWb.getAbsolutePath());
+            } else if (type.equals("docx")) {
+                WordReader wr = new WordReader();
+                wr.ReadData(noWhiteSpaceList, clonedWb.getAbsolutePath());
+            }
+        }
     }
 }

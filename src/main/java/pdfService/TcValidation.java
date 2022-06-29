@@ -1,6 +1,5 @@
 package pdfService;
 
-
 public class TcValidation {
     /*
    1 – TC Kimlik Numaralari 11 karakter olmak zorundadir.

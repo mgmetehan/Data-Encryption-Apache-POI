@@ -101,8 +101,24 @@
         </dependency>
 
 
-
-
+        <!-- https://mvnrepository.com/artifact/org.apache.poi/poi-scratchpad -->
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi-scratchpad</artifactId>
+            <version>5.2.2</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.simplejavamail/outlook-message-parser -->
+        <dependency>
+            <groupId>org.simplejavamail</groupId>
+            <artifactId>outlook-message-parser</artifactId>
+            <version>1.9.0</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/com.auxilii.msgparser/msgparser -->
+        <dependency>
+            <groupId>com.auxilii.msgparser</groupId>
+            <artifactId>msgparser</artifactId>
+            <version>1.1.15</version>
+        </dependency>
 
     </dependencies>
 

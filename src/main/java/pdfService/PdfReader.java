@@ -1,25 +1,19 @@
-package pdf.pdfBox;
+package pdfService;
 
 import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.text.PDFTextStripper;
 import org.apache.pdfbox.text.TextPosition;
+import pdf.pdfBox.GetWordsFromPDF;
 
-import java.io.ByteArrayOutputStream;
-import java.io.File;
-import java.io.IOException;
-import java.io.OutputStreamWriter;
-import java.io.Writer;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * This is an example on how to extract words from PDF document
- */
-public class GetWordsFromPDF extends PDFTextStripper {
+public class PdfReader extends PDFTextStripper {
 
     static List<String> words = new ArrayList<String>();
 
-    public GetWordsFromPDF() throws IOException {
+    public PdfReader() throws IOException {
     }
 
     /**
@@ -55,31 +49,10 @@ public class GetWordsFromPDF extends PDFTextStripper {
     @Override
     protected void writeString(String str, List<TextPosition> textPositions) throws IOException {
         String[] wordsInStream = str.split(getWordSeparator());
-        String s="Ankara";
         if (wordsInStream != null) {
             for (String word : wordsInStream) {
-                if (word.equals(s)) {
-                    for(int i = 0; i < s.length(); i++) {
-                        System.out.println(textPositions.get(i).getXDirAdj() + " " + textPositions.get(i));
-                        System.out.println();
-                        break;
-                    }
-                }
-                //words.add(word);
+                words.add(word);
             }
         }
-
-
-       /* for (TextPosition text : textPositions) {
-
-            if (textPositions.equals("Ankara")) {
-                break;
-            }
-            System.out.println(text.getUnicode() + " [(X=" + text.getXDirAdj() + ",Y=" +
-                    text.getYDirAdj() + ") height=" + text.getHeightDir() + " width=" +
-                    text.getWidthDirAdj() + "]");
-        }*/
-
-
     }
 }
