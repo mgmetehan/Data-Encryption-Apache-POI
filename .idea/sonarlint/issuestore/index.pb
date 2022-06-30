@@ -141,5 +141,3 @@ d
 4src/main/java/pdf/pdfBox/GetCharLocationAndSize.java,9\4\94c72a1020f7730531087193cfcdc18345ee7d62
 \
 ,src/main/java/pdf/itext/AddContentToPDF.java,3\8\38b7c3f0cf48e192a2ed19e50677248c1cf9e3f6
-7
-pom.xml,4\4\442292b8a7efeabbe4cc176709b833b1792140ec
