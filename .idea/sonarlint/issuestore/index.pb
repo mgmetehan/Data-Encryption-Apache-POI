@@ -66,10 +66,6 @@ _
 `
 0src/main/java/encryptionService/ExcelWriter.java,0\3\03fd8b383182e0f4e714b8b0c31508494ea0f25d
 S
-#src/main/java/mask/ExcelReader.java,8\3\838e0bd450f843adc5c016af9f8efb6f467fc9ad
-S
-#src/main/java/mask/ExcelWriter.java,3\4\3425a921a24e9cfe8bb1d107a8677131c1a74cee
-S
 #src/main/java/mask/NewFilePath.java,4\2\4240711333bd74ed45ec3a884c60582ad34b35c9
 R
 "src/main/java/mask/WordReader.java,7\0\7056d65ab3e07b6076462ac9ac2097be1c5ec53c
@@ -79,8 +75,6 @@ T
 $src/main/java/mask/TcValidation.java,e\0\e0e0a3e96e4d712b9cf771524b23ef19867fd45a
 a
 1src/main/java/encryptionService/TcValidation.java,a\6\a614c61b34739ef0b1c290607f5f1f3af63049e3
-[
-+src/main/java/mask/DataEncryptionAgent.java,4\3\43849fe55309c45a752076ac860a3f658d6bf89d
 h
 8src/main/java/development/word/read/WordAllReadDemo.java,a\8\a8f5d3bfc25a47f9996cd4b3c323bf6b1d196e55
 O
@@ -141,3 +135,11 @@ d
 4src/main/java/pdf/pdfBox/GetCharLocationAndSize.java,9\4\94c72a1020f7730531087193cfcdc18345ee7d62
 \
 ,src/main/java/pdf/itext/AddContentToPDF.java,3\8\38b7c3f0cf48e192a2ed19e50677248c1cf9e3f6
+_
+/src/main/java/encryptionService/WordReader.java,7\7\77930182237f3c5cb765f7824bd1c2687b3e42d5
+h
+8src/main/java/encryptionService/DataEncryptionAgent.java,8\3\8348fe7726a0dab6e691cf9a737e52f288b10ab6
+7
+pom.xml,4\4\442292b8a7efeabbe4cc176709b833b1792140ec
+V
+&src/main/java/outlook/msg/ReadMsg.java,1\7\174cd97cb12693466011c95a688a69834adb940c
