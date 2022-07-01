@@ -14,17 +14,4 @@ public class NewFilePath {
         System.out.println("Failed to Create New File Path!!");
         return null;
     }
-
-    //xlsx docx
-    public static String typeOfFile(String path) {
-        String fileType;
-        for (int i = 0, j = 0; i < path.length(); i++) {
-            j += 1;
-            if (path.substring(i, j).equals(".")) {
-                fileType = path.substring(j, path.length());
-                return fileType;
-            }
-        }
-        return null;
-    }
 }
