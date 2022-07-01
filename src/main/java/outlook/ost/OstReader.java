@@ -1,16 +1,17 @@
-package outlook.pst;
+package outlook.ost;
 
 import com.pff.*;
 
 import java.util.*;
 
-public class PstReader {
+
+public class OstReader {
     public static void main(String[] args) {
-        String path = "C:\\Users\\mgmet\\Desktop\\8.pst";
-        new PstReader(path);
+        String path = "C:\\Users\\mgmet\\Desktop\\deneme.ost";
+        new OstReader(path);
     }
 
-    public PstReader(String filename) {
+    public OstReader(String filename) {
         try {
             PSTFile pstFile = new PSTFile(filename);
             System.out.println("Main Filename: " + pstFile.getMessageStore().getDisplayName());
@@ -44,7 +45,8 @@ public class PstReader {
                 System.out.println("------------------------------------------");
             }
         } catch (Exception e) {
-            e.printStackTrace();
+            System.out.println(e);
+
         }
     }
 }

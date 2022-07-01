@@ -12,6 +12,11 @@
       <option name="url" value="http://repository.aspose.com/repo/" />
     </remote-repository>
     <remote-repository>
+      <option name="id" value="aspose-maven-repository" />
+      <option name="name" value="aspose-maven-repository" />
+      <option name="url" value="http://repository.aspose.com/repo/" />
+    </remote-repository>
+    <remote-repository>
       <option name="id" value="central" />
       <option name="name" value="Maven Central repository" />
       <option name="url" value="https://repo1.maven.org/maven2" />
@@ -20,6 +25,11 @@
       <option name="id" value="jboss.community" />
       <option name="name" value="JBoss Community repository" />
       <option name="url" value="https://repository.jboss.org/nexus/content/repositories/public/" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="com.springsource.repository.bundles.external" />
+      <option name="name" value="SpringSource Enterprise Bundle Repository - External Bundle Releases" />
+      <option name="url" value="http://repository.springsource.com/maven/bundles/external" />
     </remote-repository>
   </component>
 </project>
