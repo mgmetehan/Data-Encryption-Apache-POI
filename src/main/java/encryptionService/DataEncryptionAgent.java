@@ -20,7 +20,7 @@ public class DataEncryptionAgent {
             str = str.replaceAll("\\s", "");
             noWhiteSpace.add(str);
         }
-        String filePath = "C:\\Users\\mgmet\\Desktop\\deneme.docx";
+        String filePath = "C:\\Users\\mgmet\\Desktop\\a.txt";
         agent.EncryptionAgent(noWhiteSpace, filePath);
     }
 
@@ -54,6 +54,9 @@ public class DataEncryptionAgent {
             } else if (filePath.toString().endsWith("docx")) {
                 WordReader wr = new WordReader();
                 wr.ReadData(noWhiteSpaceList, clonedWb.getAbsolutePath());
+            } else if (filePath.toString().endsWith("txt")) {
+                TxtReader txtR = new TxtReader();
+                txtR.Read(noWhiteSpaceList, clonedWb.getAbsolutePath());
             }
         }
     }
