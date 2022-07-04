@@ -151,5 +151,3 @@ S
 #src/main/java/mask/ExcelReader.java,8\3\838e0bd450f843adc5c016af9f8efb6f467fc9ad
 M
 src/main/java/txt/Update.java,9\d\9d53d04b197ca420a91d6bcbf4649aec4e1437b9
-M
-src/main/java/txt/reader.java,c\0\c0d14804810e19dbed91ced0b3e1a944e7ae7633
