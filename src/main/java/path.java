@@ -1,16 +1,23 @@
 import java.io.File;
 import java.io.FilenameFilter;
+import java.util.ArrayList;
+import java.util.List;
 
 public class path {
     public static void main(String[] args) {
-        File f = new File("C:\\Users\\mgmet\\Documents\\KVKK\\Test");
-        File[] matchingFiles = f.listFiles(new FilenameFilter() {
-            public boolean accept(File dir, String name) {
-                return name.endsWith("msg") || name.endsWith("ost") || name.endsWith("pst");
+        String path = "C:\\Users\\mgmet\\Documents\\KVKK\\Test";
+        List<String> results = new ArrayList<>();
+
+        File[] files = new File(path).listFiles();
+
+        for (File file : files) {
+            if (file.isFile()) {
+                results.add(file.getPath());
             }
-        });
-       for (File matchingFile : matchingFiles) {
-           System.out.println(matchingFile);
-       }
+        }
+
+        for (String result : results) {
+            System.out.println(result);
+        }
     }
 }
