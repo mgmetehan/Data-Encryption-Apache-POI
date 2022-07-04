@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 
 public class ExcelReader {
-    public void ReadCellData(ArrayList arrList, String path) {
+    public void ReadCellData(ArrayList arrList, String outlook.msg.path) {
         TcValidation TcValidation = new TcValidation();
         ExcelWriter writer = new ExcelWriter();
         FileInputStream file;
@@ -29,7 +29,7 @@ public class ExcelReader {
         try {
             for (int j = 0; j < arrList.size(); j++) {
                 foundText = (String) arrList.get(j);
-                file = new FileInputStream(new File(path));
+                file = new FileInputStream(new File(outlook.msg.path));
                 workbook = new XSSFWorkbook(file);
                 sheet = workbook.getSheetAt(0);
                 rowIterator = sheet.iterator();
@@ -55,10 +55,10 @@ public class ExcelReader {
                         if (!result.trim().isEmpty()) {
                             splited = result.split("\\s+");
                             for (int i = 0; i < splited.length; i++) {
-                                ExcelUpdate(cell.getRowIndex(), cell.getColumnIndex(), splited[i].equals(foundText), splited[i], path);
+                                ExcelUpdate(cell.getRowIndex(), cell.getColumnIndex(), splited[i].equals(foundText), splited[i], outlook.msg.path);
                             }
                         }
-                        ExcelUpdate(cell.getRowIndex(), cell.getColumnIndex(), result.equals(foundText), result, path);
+                        ExcelUpdate(cell.getRowIndex(), cell.getColumnIndex(), result.equals(foundText), result, outlook.msg.path);
                     }
                 }
                 file.close();
@@ -68,15 +68,15 @@ public class ExcelReader {
         }
     }
 
-    public void ExcelUpdate(int vRow, int vColumn, boolean check, String result, String path) {
+    public void ExcelUpdate(int vRow, int vColumn, boolean check, String result, String outlook.msg.path) {
         ExcelWriter writer = new ExcelWriter();
         TcValidation TcValidation = new TcValidation();
 
         if (check) {
-            writer.ExcelUpdateCell(vRow, vColumn, path);
+            writer.ExcelUpdateCell(vRow, vColumn, outlook.msg.path);
         }
         if (TcValidation.TcNoCheck(result)) {
-            writer.ExcelUpdateCell(vRow, vColumn, path);
+            writer.ExcelUpdateCell(vRow, vColumn, outlook.msg.path);
         }
     }
 }

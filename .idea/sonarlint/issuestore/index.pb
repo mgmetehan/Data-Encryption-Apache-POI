@@ -35,8 +35,6 @@ i
 9src/main/java/development/word/read/WordAllReadDemo1.java,b\7\b7f4ed2537d3218f2b1c138989787515faf96a48
 i
 9src/main/java/development/word/read/WordAllReadDemo2.java,c\f\cfdbb562a985145dc1a3ec6290ae3536ccee8a6d
-V
-&src/main/java/excelService/Writer.java,5\d\5de963dc897728813e56224cb17674e3db06aa33
 a
 1src/main/java/development/pptx/read/pptxRead.java,b\b\bb2412c76409c4e687bcb0153259f681165a2004
 h
@@ -131,14 +129,10 @@ d
 ,src/main/java/pdf/itext/AddContentToPDF.java,3\8\38b7c3f0cf48e192a2ed19e50677248c1cf9e3f6
 V
 &src/main/java/outlook/msg/ReadMsg.java,1\7\174cd97cb12693466011c95a688a69834adb940c
-S
-#src/main/java/mask/ExcelReader.java,8\3\838e0bd450f843adc5c016af9f8efb6f467fc9ad
 [
 +src/main/java/mask/DataEncryptionAgent.java,4\3\43849fe55309c45a752076ac860a3f658d6bf89d
 S
 #src/main/java/mask/ExcelWriter.java,3\4\3425a921a24e9cfe8bb1d107a8677131c1a74cee
-`
-0src/main/java/encryptionService/ExcelReader.java,8\f\8fe86ce0b36e8c6947218704460925289728dad2
 `
 0src/main/java/encryptionService/ExcelWriter.java,0\3\03fd8b383182e0f4e714b8b0c31508494ea0f25d
 _

@@ -149,46 +149,46 @@ public class ProcessService {
     private String processFile(FileDiscoveryTask task) {
 
         //requireComplianceFilesCount++;
-        Path path = Paths.get(task.getPath());
-        String fileName = path.toAbsolutePath().toString();
+        Path outlook.msg.path = Paths.get(task.getPath());
+        String fileName = outlook.msg.path.toAbsolutePath().toString();
 
         String status = FileDiscoveryStatus.SKIPPED.name();
-        path = Paths.get("C:\\Users\\mgmet\\Documents\\KVKK\\Test\\MICROPROCESSORS.msg");
-        fileName = path.toAbsolutePath().toString();
+        outlook.msg.path = Paths.get("C:\\Users\\mgmet\\Documents\\KVKK\\Test\\MICROPROCESSORS.msg");
+        fileName = outlook.msg.path.toAbsolutePath().toString();
 
         System.out.println("1Meteeeee1212112");
 
-        if (path.getFileName().toString().endsWith(".txt") || path.getFileName().toString().endsWith(".csv") || path.getFileName().toString().endsWith(".xml")) {
+        if (outlook.msg.path.getFileName().toString().endsWith(".txt") || outlook.msg.path.getFileName().toString().endsWith(".csv") || outlook.msg.path.getFileName().toString().endsWith(".xml")) {
             status = applyValidationsOnTextBasedFile(fileName);
             addNewFileDiscoveryResultsIntoList(fileName);
-        } else if (path.getFileName().toString().endsWith(".pdf")) {
+        } else if (outlook.msg.path.getFileName().toString().endsWith(".pdf")) {
             status = applyValidationsOnPdfFile(fileName);
             addNewFileDiscoveryResultsIntoList(fileName);
-        } else if (path.getFileName().toString().endsWith(".doc")) {
+        } else if (outlook.msg.path.getFileName().toString().endsWith(".doc")) {
             status = applyValidationsOnDocFile(fileName);
             addNewFileDiscoveryResultsIntoList(fileName);
-        } else if (path.getFileName().toString().endsWith(".docx")) {
+        } else if (outlook.msg.path.getFileName().toString().endsWith(".docx")) {
             status = applyValidationsOnDocxFile(fileName);
             addNewFileDiscoveryResultsIntoList(fileName);
-        } else if (path.getFileName().toString().endsWith(".xls")) {
+        } else if (outlook.msg.path.getFileName().toString().endsWith(".xls")) {
             status = applyValidationsOnXlsFile(fileName);
             addNewFileDiscoveryResultsIntoList(fileName);
-        } else if (path.getFileName().toString().endsWith(".xlsx")) {
+        } else if (outlook.msg.path.getFileName().toString().endsWith(".xlsx")) {
             status = applyValidationsOnXlsxFile(fileName);
             addNewFileDiscoveryResultsIntoList(fileName);
-        } else if (path.getFileName().toString().endsWith(".ppt")) {
+        } else if (outlook.msg.path.getFileName().toString().endsWith(".ppt")) {
             status = applyValidationsOnPptFile(fileName);
             addNewFileDiscoveryResultsIntoList(fileName);
-        } else if (path.getFileName().toString().endsWith(".pptx")) {
+        } else if (outlook.msg.path.getFileName().toString().endsWith(".pptx")) {
             status = applyValidationsOnPptxFile(fileName);
             addNewFileDiscoveryResultsIntoList(fileName);
-        } else if (path.getFileName().toString().endsWith(".msg")) {
+        } else if (outlook.msg.path.getFileName().toString().endsWith(".msg")) {
             System.out.println("Mete");
             System.out.println("cccccccccccccccccccccBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB");
             status = applyValidationsOnMsgFile(fileName);
             addNewFileDiscoveryResultsIntoList(fileName);
         } else {
-            logger.info("ProcessService: Unrecognized File Format for " + path.getFileName().toString());
+            logger.info("ProcessService: Unrecognized File Format for " + outlook.msg.path.getFileName().toString());
         }
 
         return status;

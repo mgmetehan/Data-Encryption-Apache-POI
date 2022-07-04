@@ -17,7 +17,7 @@ public class Outlook {
     long emailID = 0;
 
 //This function is used for reading the Folders and Email from Outlook
-    // file path represents the location where PST/OST file store in the directory
+    // file outlook.msg.path represents the location where PST/OST file store in the directory
 
     public void getOutlookMSG(String filePath) {
         try {
@@ -113,7 +113,7 @@ public class Outlook {
                                                 }
                                                 byte[] endBuffer = new byte[count];
 
-                                                // this code is used for saving the attachment in the directory at the given path
+                                                // this code is used for saving the attachment in the directory at the given outlook.msg.path
                                                 // i.e.,locationForAttchedFileToWrite
                                                 System.arraycopy(buffer, 0, endBuffer, 0, count);
                                                 out.write(endBuffer);

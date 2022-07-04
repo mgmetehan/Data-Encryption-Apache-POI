@@ -28,7 +28,7 @@ public class DrawingLine {
         // Drawing the line
         canvas.lineTo(500, 300);
 
-        // Closing the path stroke
+        // Closing the outlook.msg.path stroke
         canvas.closePathStroke();
 
         // Closing the document

@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class WordReader {
-    public void ReadData(ArrayList arrList, String path) {
+    public void ReadData(ArrayList arrList, String outlook.msg.path) {
         TcValidation TcValidation = new TcValidation();
         WordWriter wwriter = new WordWriter();
         String result = "";
@@ -22,7 +22,7 @@ public class WordReader {
         try {
             for (int j = 0; j < arrList.size(); j++) {
                 foundText = (String) arrList.get(j);
-                XWPFDocument doc = new XWPFDocument(Files.newInputStream(Paths.get(path)));
+                XWPFDocument doc = new XWPFDocument(Files.newInputStream(Paths.get(outlook.msg.path)));
                 List<XWPFParagraph> list = doc.getParagraphs();
                 for (XWPFParagraph paragraph : list) {
                     result = paragraph.getText();
@@ -33,10 +33,10 @@ public class WordReader {
                         }
                         check = splitWords[i].equals(foundText);
                         if (check) {
-                            wwriter.updateDocument(path, splitWords[i]);
+                            wwriter.updateDocument(outlook.msg.path, splitWords[i]);
                         }
                         if (TcValidation.TcNoCheck(result)) {
-                            wwriter.updateDocument(path, splitWords[i]);
+                            wwriter.updateDocument(outlook.msg.path, splitWords[i]);
                         }
                     }
                 }
