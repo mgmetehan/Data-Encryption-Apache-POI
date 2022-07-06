@@ -27,10 +27,10 @@ public class WordTableRead {
                 for (XWPFTableCell cell : row.getTableCells()) {
                     System.out.println(cell.getText());
                     String sFieldValue = cell.getText();
-                    if (sFieldValue.matches("Onur Çalıkuş") || sFieldValue.matches("Approved")) {
+                    if (sFieldValue.matches("Kurucu") || sFieldValue.matches("Approved")) {
                         System.out.println("The match as per the Document is True");
                     }
-					//System.out.println("\t");
+                    //System.out.println("\t");
                 }
                 //System.out.println(" ");
             }

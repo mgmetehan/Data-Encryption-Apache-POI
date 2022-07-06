@@ -83,12 +83,8 @@ S
 #src/main/java/wordService/Main.java,1\7\17ef5afabbb9a1d7925715ab87d29965df117c86
 Z
 *src/main/java/wordService/NewFilePath.java,4\5\4539dcf6af8acefb56e3b7503d0e23f6958992b0
-Y
-)src/main/java/wordService/WordReader.java,0\9\0905108fbb6929f624f42e7523b85463249f1e34
 _
 /src/main/java/wordService/WordTcValidation.java,1\d\1dc6b3eb83fb692717963c554236fccd8a1b6d21
-Y
-)src/main/java/wordService/WordWriter.java,5\8\583b51e3f00ccff7b53c34bd7661e791c0cb1159
 ]
 -src/main/java/pdf/itext/PDFModifyExample.java,0\0\00a9d3aadbaa6998fb74d0dcb5a8897851309270
 V
