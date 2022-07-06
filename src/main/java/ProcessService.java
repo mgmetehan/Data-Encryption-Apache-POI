@@ -1,5 +1,50 @@
 /*
+import com.auxilii.msgparser.Message;
+import com.auxilii.msgparser.MsgParser;
+import com.omreon.filediscoveryagent.beans.*;
+import com.omreon.filediscoveryagent.enums.FileDiscoveryStatus;
+import com.omreon.filediscoveryagent.enums.Stages;
+import com.omreon.filediscoveryagent.job.RegexCategoriesRefresher;
+import com.omreon.filediscoveryagent.mask.DataEncryptionAgent;
+import com.omreon.filediscoveryagent.services.external.*;
+import com.omreon.filediscoveryagent.utils.FileDiscoveryHelper;
+import com.omreon.filediscoveryagent.utils.PropertiesViaDatabase;
+import com.omreon.filediscoveryagent.utils.PropertiesViaFile;
+import com.omreon.filediscoveryagent.utils.RegexValidator;
+import com.pff.PSTException;
+import com.pff.PSTFile;
+import com.pff.PSTFolder;
+import com.pff.PSTMessage;
+import org.apache.pdfbox.pdmodel.PDDocument;
+import org.apache.pdfbox.text.PDFTextStripper;
+import org.apache.poi.hslf.usermodel.HSLFSlideShow;
+import org.apache.poi.hslf.usermodel.HSLFTextParagraph;
+import org.apache.poi.hssf.usermodel.HSSFSheet;
+import org.apache.poi.hssf.usermodel.HSSFWorkbook;
+import org.apache.poi.hwpf.HWPFDocument;
+import org.apache.poi.hwpf.extractor.WordExtractor;
+import org.apache.poi.sl.usermodel.PlaceableShape;
+import org.apache.poi.ss.usermodel.*;
+import org.apache.poi.xslf.usermodel.*;
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.apache.poi.xwpf.extractor.XWPFWordExtractor;
+import org.apache.poi.xwpf.usermodel.XWPFDocument;
+import org.apache.poi.xwpf.usermodel.XWPFParagraph;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
+
+import java.awt.geom.Rectangle2D;
+import java.io.*;
+import java.nio.charset.MalformedInputException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.sql.ResultSet;
+import java.text.SimpleDateFormat;
+import java.util.*;
+import java.util.stream.Stream;
 
 @Service
 public class ProcessService {
@@ -21,6 +66,7 @@ public class ProcessService {
     private FileDiscoverySummaryService fileDiscoverySummaryService;
     private FileDiscoveryResultService fileDiscoveryResultService;
     private PropertiesViaDatabase propertiesViaDatabase;
+    private PropertiesViaFile props;
 
     private List<RegexCategory> categories = new ArrayList<>();
 
@@ -31,7 +77,8 @@ public class ProcessService {
     private DataEncryptionAgent agent = new DataEncryptionAgent();
 
     @Autowired
-    public ProcessService(AuthenticationService authenticationService, PropertiesViaDatabase propertiesViaDatabase, FileDiscoveryService fileDiscoveryService, FileDiscoverySummaryService fileDiscoverySummaryService, FileDiscoveryTaskService fileDiscoveryTaskService, FileDiscoveryResultService fileDiscoveryResultService, FileDiscoveryHelper fileDiscoveryHelper, RegexCategoriesRefresher regexCategoriesRefresher) {
+    public ProcessService(AuthenticationService authenticationService, PropertiesViaDatabase propertiesViaDatabase, FileDiscoveryService fileDiscoveryService, FileDiscoverySummaryService fileDiscoverySummaryService, FileDiscoveryTaskService fileDiscoveryTaskService, FileDiscoveryResultService fileDiscoveryResultService, FileDiscoveryHelper fileDiscoveryHelper, RegexCategoriesRefresher regexCategoriesRefresher,
+                          PropertiesViaFile props) {
 
         long start = System.currentTimeMillis();
 
@@ -45,6 +92,7 @@ public class ProcessService {
         this.fileDiscoveryTaskService = fileDiscoveryTaskService;
         this.fileDiscoveryHelper = fileDiscoveryHelper;
         this.propertiesViaDatabase = propertiesViaDatabase;
+        this.props = props;
 
         regexCategoriesRefresher.getAllRegexCategory();
         process();
@@ -97,16 +145,9 @@ public class ProcessService {
                 //Create FileDiscoveryResults in Database
                 fileDiscoveryResultService.createFileDiscoveryResultsByArrayList(token, fileDiscoveryResults);
                 //mask try
-                try {
-                    //Get New Token
-                    token = authenticationService.getToken();
-
-                    //agent.EncryptionAgent(token, fileDiscoveryResults);
-                } catch (Exception e) {
-                    System.out.println(e);
-                }
 
                 //fileDiscoveryResultService.createFileDiscoveryResultsByArrayList(token, Integer.parseInt(fileDiscoverySummaryId), fileName, categories, sensitiveDataCount);
+                maskResults();
 
                 sensitiveDataCount = 0;
                 processedFilesCount = 0;
@@ -149,120 +190,57 @@ public class ProcessService {
     private String processFile(FileDiscoveryTask task) {
 
         //requireComplianceFilesCount++;
-        Path outlook.msg.path = Paths.get(task.getPath());
-        String fileName = outlook.msg.path.toAbsolutePath().toString();
+
+        Path path = Paths.get(task.getPath());
+        String fileName = path.toAbsolutePath().toString();
 
         String status = FileDiscoveryStatus.SKIPPED.name();
-        outlook.msg.path = Paths.get("C:\\Users\\mgmet\\Documents\\KVKK\\Test\\MICROPROCESSORS.msg");
-        fileName = outlook.msg.path.toAbsolutePath().toString();
 
-        System.out.println("1Meteeeee1212112");
+        if (fileName.contains(props.getSkipMaskFileTitle())) {
+            logger.info("Skipping Mask File: {}", fileName);
+            return status;
+        }
 
-        if (outlook.msg.path.getFileName().toString().endsWith(".txt") || outlook.msg.path.getFileName().toString().endsWith(".csv") || outlook.msg.path.getFileName().toString().endsWith(".xml")) {
+        if (path.getFileName().toString().endsWith(".txt")
+                || path.getFileName().toString().endsWith(".csv")
+                || path.getFileName().toString().endsWith(".xml")) {
             status = applyValidationsOnTextBasedFile(fileName);
             addNewFileDiscoveryResultsIntoList(fileName);
-        } else if (outlook.msg.path.getFileName().toString().endsWith(".pdf")) {
+        } else if (path.getFileName().toString().endsWith(".pdf")) {
             status = applyValidationsOnPdfFile(fileName);
             addNewFileDiscoveryResultsIntoList(fileName);
-        } else if (outlook.msg.path.getFileName().toString().endsWith(".doc")) {
+        } else if (path.getFileName().toString().endsWith(".doc")) {
             status = applyValidationsOnDocFile(fileName);
             addNewFileDiscoveryResultsIntoList(fileName);
-        } else if (outlook.msg.path.getFileName().toString().endsWith(".docx")) {
+        } else if (path.getFileName().toString().endsWith(".docx")) {
             status = applyValidationsOnDocxFile(fileName);
             addNewFileDiscoveryResultsIntoList(fileName);
-        } else if (outlook.msg.path.getFileName().toString().endsWith(".xls")) {
+        } else if (path.getFileName().toString().endsWith(".xls")) {
             status = applyValidationsOnXlsFile(fileName);
             addNewFileDiscoveryResultsIntoList(fileName);
-        } else if (outlook.msg.path.getFileName().toString().endsWith(".xlsx")) {
+        } else if (path.getFileName().toString().endsWith(".xlsx")) {
             status = applyValidationsOnXlsxFile(fileName);
             addNewFileDiscoveryResultsIntoList(fileName);
-        } else if (outlook.msg.path.getFileName().toString().endsWith(".ppt")) {
+        } else if (path.getFileName().toString().endsWith(".ppt")) {
             status = applyValidationsOnPptFile(fileName);
             addNewFileDiscoveryResultsIntoList(fileName);
-        } else if (outlook.msg.path.getFileName().toString().endsWith(".pptx")) {
+        } else if (path.getFileName().toString().endsWith(".pptx")) {
             status = applyValidationsOnPptxFile(fileName);
             addNewFileDiscoveryResultsIntoList(fileName);
-        } else if (outlook.msg.path.getFileName().toString().endsWith(".msg")) {
-            System.out.println("Mete");
-            System.out.println("cccccccccccccccccccccBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB");
+        } else if (path.getFileName().toString().endsWith(".msg")) {
             status = applyValidationsOnMsgFile(fileName);
             addNewFileDiscoveryResultsIntoList(fileName);
+        } else if (path.getFileName().toString().endsWith(".pst")) {
+            status = applyValidationsOnPstFile(fileName);
+            addNewFileDiscoveryResultsIntoList(fileName);
+        } else if (path.getFileName().toString().endsWith(".ost")) {
+            status = applyValidationsOnOstFile(fileName);
+            addNewFileDiscoveryResultsIntoList(fileName);
         } else {
-            logger.info("ProcessService: Unrecognized File Format for " + outlook.msg.path.getFileName().toString());
+            logger.info("ProcessService: Unrecognized File Format for " + path.getFileName().toString());
         }
 
         return status;
-    }
-
-    ////////////////////////////
-    private String applyValidationsOnMsgFile(String fileName) {
-      */
-/*  //Skip if the file is password protected
-        if (fileDiscoveryHelper.isEncryptedMSOfficeFile(fileName)) {
-            logger.info("Filename:" + fileName + " is being skipped because it's password protected");
-            return FileDiscoveryStatus.SKIPPED.name(); //File skipped
-        }*//*
-
-        MsgParser msgp = new MsgParser();
-        Message msg = null;
-        System.out.println("BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB");
-        try {
-            msg = msgp.parseMsg(fileName);
-            //msg = msgp.parseMsg("C:\\Users\\mgmet\\Documents\\KVKK\\Test\\MICROPROCESSORS.msg");
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-            logger.error(e.getMessage());
-        } catch (Exception e) {
-            e.printStackTrace();
-            logger.error(e.getMessage());
-        }
-        String from_email, from_name, subject, body, to_list, cc_list, bcc_list, split;
-        String[] splitFrom_email, splitFrom_name, splitSubject, splitBody, splitTo_list, splitCc_list, splitBcc_list, splitList;
-
-        try {
-            from_email = msg.getFromEmail();
-            from_name = msg.getFromName();
-            subject = msg.getSubject();
-            body = msg.getBodyText();
-            to_list = msg.getDisplayTo();
-            cc_list = msg.getDisplayCc();
-            bcc_list = msg.getDisplayBcc();
-
-            splitFrom_email = from_email.split("\\s+");
-            splitFrom_name = from_name.split("\\s+");
-            splitSubject = subject.split("\\s+");
-            splitBody = body.split("\\s+");
-            splitTo_list = to_list.split("\\s+");
-            splitCc_list = cc_list.split("\\s+");
-            splitBcc_list = bcc_list.split("\\s+");
-
-         */
-/*   splitList[0] = ("splitFrom_email");
-            splitList[1] = ("splitFrom_name");
-            splitList[2] = ("splitSubject");
-            splitList[3] = ("splitBody");
-            splitList[4] = ("splitTo_list");
-            splitList[5] = ("splitCc_list");
-            splitList[6] = ("splitBcc_list");
-*//*
-
-
-
-            for (String word : splitBody) {
-                categories = new RegexValidator().validate(categories, word);
-            }
-
-
-            processedFilesCount++;
-
-            return FileDiscoveryStatus.COMPLETED.name(); //Processed successfully
-
-        } catch (Exception e) {
-            e.printStackTrace();
-            logger.error(e.getMessage());
-        }
-
-        return FileDiscoveryStatus.FAILED.name(); //Failed
     }
 
 
@@ -272,6 +250,7 @@ public class ProcessService {
         sensitiveDataCount += categories.size();
 
         for (RegexCategory regexCategory : categories) {
+
             FileDiscoveryResult fileDiscoveryResult = new FileDiscoveryResult();
             fileDiscoveryResult.setFileDiscoverySummary(new FileDiscoverySummary(fileDiscoverySummaryId));
             String discoveryDateTime = FileDiscoveryHelper.getCurrentTimestamp();
@@ -432,13 +411,11 @@ public class ProcessService {
     // DOCX (XSLF)
     private String applyValidationsOnDocxFile(String fileName) {
 
-        */
-/*//*
-/Skip if the file is password protected
+        //Skip if the file is password protected
         if (fileDiscoveryHelper.isEncryptedMSOfficeFile(fileName)) {
             logger.info("Filename:" + fileName + " is being skipped because it's password protected");
             return FileDiscoveryStatus.SKIPPED.name(); //File skipped
-        }*//*
+        }
 
         File file = new File(fileName);
         FileInputStream fis = null;
@@ -452,6 +429,27 @@ public class ProcessService {
             logger.error(e.getMessage());
         }
 
+        String result = "";
+        String[] splitWords;
+        XWPFDocument doc = null;
+        try {
+            doc = new XWPFDocument(fis);
+            XWPFWordExtractor xwpfWordExtractor = new XWPFWordExtractor(doc);
+            result = xwpfWordExtractor.getText();
+            splitWords = result.split("\\s+");
+            for (int i = 0; i < splitWords.length; i++) {
+                if (splitWords[i] == null) {
+                    continue;
+                }
+                categories = new RegexValidator().validate(categories, splitWords[i]);
+            }
+            processedFilesCount++;
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+*/
+/*
         XWPFDocument xwpfDocument = null;
         try {
             xwpfDocument = new XWPFDocument(fis);
@@ -473,6 +471,7 @@ public class ProcessService {
             e.printStackTrace();
             logger.error(e.getMessage());
         }
+*//*
 
         return FileDiscoveryStatus.FAILED.name(); //Failed
 
@@ -569,10 +568,20 @@ public class ProcessService {
 
                 for (Row myrow : xssfSheet) {
                     for (Cell mycell : myrow) {
-                        if (mycell.getCellType().equals(CellType.STRING)) {
-                            categories = new RegexValidator().validate(categories, mycell.getStringCellValue());
-                        } else if (mycell.getCellType().equals(CellType.NUMERIC)) {
-                            categories = new RegexValidator().validate(categories, String.valueOf(mycell.getNumericCellValue()));
+                        try {
+                            if (mycell.getCellType().equals(CellType.STRING)) {
+                                categories = new RegexValidator().validate(categories, mycell.getStringCellValue());
+                            } else if (mycell.getCellType().equals(CellType.NUMERIC)) {
+                                if (fileDiscoveryHelper.myIsADateFormat(mycell)) {
+                                    categories = new RegexValidator().validate(categories, String.valueOf(mycell.getNumericCellValue()));
+                                } else {
+                                    DataFormatter fmt = new DataFormatter();
+                                    String cellValue = fmt.formatCellValue(mycell);
+                                    categories = new RegexValidator().validate(categories, String.valueOf(cellValue));
+                                }
+                            }
+                        } catch (Exception e) {
+                            logger.error(e.getMessage());
                         }
                     }
                 }
@@ -730,5 +739,195 @@ public class ProcessService {
         }
 
         return FileDiscoveryStatus.FAILED.name(); //Failed
+    }
+
+
+    // MSG
+    private String applyValidationsOnMsgFile(String fileName) {
+        //Skip if the file is password protected
+        */
+/*if (fileDiscoveryHelper.isEncryptedMSOfficeFile(fileName)) {
+            logger.info("Filename:" + fileName + " is being skipped because it's password protected");
+            return FileDiscoveryStatus.SKIPPED.name(); //File skipped
+        }*//*
+
+        MsgParser msgp = new MsgParser();
+        Message msg = null;
+        try {
+            msg = msgp.parseMsg(fileName);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+            logger.error(e.getMessage());
+        } catch (Exception e) {
+            e.printStackTrace();
+            logger.error(e.getMessage());
+        }
+        String from_email, from_name, subject, body, to_list, cc_list, bcc_list, split;
+        String[] splitFrom_email, splitFrom_name, splitSubject, splitBody, splitTo_list, splitCc_list, splitBcc_list;
+
+        try {
+            from_email = msg.getFromEmail();
+            from_name = msg.getFromName();
+            subject = msg.getSubject();
+            body = msg.getBodyText();
+            to_list = msg.getDisplayTo();
+            cc_list = msg.getDisplayCc();
+            bcc_list = msg.getDisplayBcc();
+
+            splitFrom_email = from_email.split("\\s+");
+            splitFrom_name = from_name.split("\\s+");
+            splitSubject = subject.split("\\s+");
+            splitBody = body.split("\\s+");
+            splitTo_list = to_list.split("\\s+");
+            splitCc_list = cc_list.split("\\s+");
+            splitBcc_list = bcc_list.split("\\s+");
+
+            for (String word : splitFrom_email) {
+                categories = new RegexValidator().validate(categories, word);
+            }
+            for (String word : splitFrom_name) {
+                categories = new RegexValidator().validate(categories, word);
+            }
+            for (String word : splitSubject) {
+                categories = new RegexValidator().validate(categories, word);
+            }
+            for (String word : splitBody) {
+                categories = new RegexValidator().validate(categories, word);
+            }
+            for (String word : splitTo_list) {
+                categories = new RegexValidator().validate(categories, word);
+            }
+            for (String word : splitCc_list) {
+                categories = new RegexValidator().validate(categories, word);
+            }
+            for (String word : splitBcc_list) {
+                categories = new RegexValidator().validate(categories, word);
+            }
+
+            processedFilesCount++;
+
+            return FileDiscoveryStatus.COMPLETED.name(); //Processed successfully
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            logger.error(e.getMessage());
+        }
+
+        return FileDiscoveryStatus.FAILED.name(); //Failed
+    }
+
+    // PST
+    private String applyValidationsOnPstFile(String fileName) {
+        //Skip if the file is password protected
+       */
+/* if (fileDiscoveryHelper.isEncryptedMSOfficeFile(fileName)) {
+            logger.info("Filename:" + fileName + " is being skipped because it's password protected");
+            return FileDiscoveryStatus.SKIPPED.name(); //File skipped
+        }*//*
+
+
+        PSTFile pstFile = null;
+        try {
+            pstFile = new PSTFile(fileName);
+            //System.out.println("Main Mail Filename: " + pstFile.getMessageStore().getDisplayName());
+        } catch (Exception err) {
+            err.printStackTrace();
+            logger.error(err.getMessage());
+        }
+
+        try {
+            processFolder(pstFile.getRootFolder());
+
+            return FileDiscoveryStatus.COMPLETED.name(); //Processed successfully
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            logger.error(e.getMessage());
+        }
+
+        return FileDiscoveryStatus.FAILED.name(); //Failed
+    }
+
+    private void processFolder(PSTFolder folder) {
+        try {
+            //System.out.println("Child Mail Filename: " + folder.getDisplayName());
+
+            // go through the folders...
+            if (folder.hasSubfolders()) {
+                Vector<PSTFolder> childFolders = folder.getSubFolders();
+                for (PSTFolder childFolder : childFolders) {
+                    processFolder(childFolder);
+                }
+            }
+
+            // and now the emails for this folder
+            if (folder.getContentCount() > 0) {
+                PSTMessage email = (PSTMessage) folder.getNextChild();
+                while (email != null) {
+                    //If you want to see the mail in console
+               */
+/* System.out.println("Email: " + email.getSubject());
+                System.out.println("Body: " + email.getBody());*//*
+
+
+                    String subject = email.getSubject();
+                    String body = email.getBody();
+
+                    String[] splitSubject = subject.split("\\s+");
+                    String[] splitBody = body.split("\\s+");
+
+                    for (String word : splitSubject) {
+                        categories = new RegexValidator().validate(categories, word);
+                    }
+                    for (String word : splitBody) {
+                        categories = new RegexValidator().validate(categories, word);
+                    }
+                    processedFilesCount++;
+                    email = (PSTMessage) folder.getNextChild();
+                }
+            }
+        } catch (PSTException e) {
+           */
+/* e.printStackTrace();
+            logger.error(e.getMessage());*//*
+
+        } catch (IOException e) {
+            e.printStackTrace();
+            logger.error(e.getMessage());
+        }
+    }
+
+    // OST
+    private String applyValidationsOnOstFile(String fileName) {
+        //Skip if the file is password protected
+       */
+/* if (fileDiscoveryHelper.isEncryptedMSOfficeFile(fileName)) {
+            logger.info("Filename:" + fileName + " is being skipped because it's password protected");
+            return FileDiscoveryStatus.SKIPPED.name(); //File skipped
+        }*//*
+
+
+        try {
+            PSTFile OstFile = new PSTFile(fileName);
+            processFolder(OstFile.getRootFolder());
+            return FileDiscoveryStatus.COMPLETED.name(); //Processed successfully
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            logger.error(e.getMessage());
+        }
+        return FileDiscoveryStatus.FAILED.name(); //Failed
+    }
+
+    public void maskResults() {
+        try {
+            HashMap<String, List<String>> hashMap = fileDiscoveryHelper.resultsToHashMap(fileDiscoveryResults);
+            for (String key : hashMap.keySet()) {
+                agent.EncryptionAgent((ArrayList) hashMap.get(key), key);
+            }
+
+        } catch (Exception e) {
+            System.out.println(e);
+        }
     }
 }*/
