@@ -11,16 +11,16 @@ public class DataEncryptionAgent {
         DataEncryptionAgent agent = new DataEncryptionAgent();
         ArrayList arr = new ArrayList();
         ArrayList noWhiteSpace = new ArrayList();
-        arr.add("Ceren");
-        arr.add("Ayşe");
-        arr.add("Yılmaz");
-        arr.add("Türkiye");
+        arr.add("Teknik");
+        arr.add("Çalıkuş");
+        arr.add("Manisa");
+        arr.add("Ömer ");
         for (int i = 0; i < arr.size(); i++) {
             String str = (String) arr.get(i);
             str = str.replaceAll("\\s", "");
             noWhiteSpace.add(str);
         }
-        String filePath = "C:\\Users\\mgmet\\Desktop\\a.txt";
+        String filePath = "C:\\Users\\mgmet\\Desktop\\Girişim Analizi ve Teknik Analiz Dosyası.docx";
         agent.EncryptionAgent(noWhiteSpace, filePath);
     }
 
