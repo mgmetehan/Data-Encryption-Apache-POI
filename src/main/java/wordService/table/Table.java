@@ -1,6 +1,7 @@
 package wordService.table;
 
 import org.apache.poi.xwpf.usermodel.*;
+import wordService.WordWriter;
 
 import java.io.FileInputStream;
 import java.io.IOException;

@@ -7,6 +7,7 @@ import org.apache.poi.xwpf.usermodel.XWPFTableRow;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.List;
 
@@ -29,12 +30,17 @@ public class WordTableRead {
                     String sFieldValue = cell.getText();
                     if (sFieldValue.matches("Kurucu") || sFieldValue.matches("Approved")) {
                         System.out.println("The match as per the Document is True");
+                        sFieldValue = "*****";
+                        cell.setText(sFieldValue);
+                        System.out.println();
                     }
                     //System.out.println("\t");
                 }
                 //System.out.println(" ");
             }
         }
-
+        FileOutputStream out = new FileOutputStream(path);
+        doc.write(out);
     }
 }
+
