@@ -7,8 +7,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
-public class ReadParseDocument1 {
-
+public class ReadBest {
     public static void main(String[] args) throws IOException {
         String fileName = "C:\\Users\\mgmet\\Desktop\\Girişim Analizi ve Teknik Analiz Dosyası.docx";
         String result = "";
@@ -23,11 +22,6 @@ public class ReadParseDocument1 {
                     continue;
                 }
                 System.out.println(splitWords[i]);
-
-              /*  String sFieldValue = splitWords[i];
-                if (sFieldValue.matches("Kurucu") || sFieldValue.matches("Approved")) {
-                    System.out.println("aaaaaaaaaaaaaaaa");
-                }*/
             }
         } catch (IOException e) {
             throw new RuntimeException(e);
