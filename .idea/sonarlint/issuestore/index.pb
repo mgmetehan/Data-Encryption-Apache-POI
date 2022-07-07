@@ -97,8 +97,6 @@ X
 (src/main/java/pdfService/WordReader.java,e\c\ec3ecda2e9d4cab4375bb436844021b4513b457d
 X
 (src/main/java/pdfService/WordWriter.java,0\4\04e36f75209ae067785c2251a493bab10872e61c
-a
-1src/main/java/pdfService/DataEncryptionAgent.java,0\e\0ef8efcea9c7a7ccad03a1f5f3fd6ffcd893fc2e
 U
 %src/main/java/pdf/pdfBox/ReadPdf.java,f\7\f74c7d0253da9ae205e341c5fd9a98a149c6ae95
 Y
@@ -149,8 +147,6 @@ _
 /src/main/java/encryptionService/WordReader.java,7\7\77930182237f3c5cb765f7824bd1c2687b3e42d5
 `
 0src/main/java/wordAgent/DataEncryptionAgent.java,2\5\25bf9eb6ebffcb05c6fe97ad41c6aea7485e1be6
-7
-pom.xml,4\4\442292b8a7efeabbe4cc176709b833b1792140ec
 V
 &src/main/java/wordService/table/R.java,3\c\3c7adb2d8295df35de92acd49426f6bcdfcba047
 Y
@@ -199,5 +195,3 @@ a
 0src/main/java/wordService/table/createTable.java,f\e\fee0725777343a15abca14e1a0b5341e55198173
 i
 9src/main/java/wordService/table/ReadParagraphExample.java,1\a\1a5da037e50a773d9c0589a5e2cdcbf4eb67988b
-d
-4src/main/java/wordService/table/WordReplaceText.java,5\f\5f406e262db9bb90da6ff62b70d6d4a21875aace
