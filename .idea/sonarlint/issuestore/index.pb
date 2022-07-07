@@ -51,8 +51,6 @@ R
 "src/main/java/excelAgent/Main.java,1\1\1191fa863309657a15a0dc07c33dbb861c924296
 Y
 )src/main/java/excelAgent/NewFilePath.java,8\8\88d16aade31cf71b779acce61db123c005d14307
-`
-0src/main/java/encryptionService/NewFilePath.java,8\2\82629748d5df935e50b2af8d2431980046e5c948
 S
 #src/main/java/mask/NewFilePath.java,4\2\4240711333bd74ed45ec3a884c60582ad34b35c9
 R
@@ -61,8 +59,6 @@ R
 "src/main/java/mask/WordWriter.java,3\0\306a0bbd250176796aade29ddff51a1c28f6a16d
 T
 $src/main/java/mask/TcValidation.java,e\0\e0e0a3e96e4d712b9cf771524b23ef19867fd45a
-a
-1src/main/java/encryptionService/TcValidation.java,a\6\a614c61b34739ef0b1c290607f5f1f3af63049e3
 h
 8src/main/java/development/word/read/WordAllReadDemo.java,a\8\a8f5d3bfc25a47f9996cd4b3c323bf6b1d196e55
 O
@@ -131,20 +127,8 @@ S
 #src/main/java/mask/ExcelReader.java,8\3\838e0bd450f843adc5c016af9f8efb6f467fc9ad
 M
 src/main/java/txt/Update.java,9\d\9d53d04b197ca420a91d6bcbf4649aec4e1437b9
-_
-/src/main/java/encryptionService/WordWriter.java,4\b\4b57c447a9266cab7899a1a5a2abaa590217af39
-`
-0src/main/java/encryptionService/ExcelWriter.java,0\3\03fd8b383182e0f4e714b8b0c31508494ea0f25d
-^
-.src/main/java/encryptionService/TxtWriter.java,d\7\d70e5a5eaf3db7748140cf7cfbbadb792e56cb62
-`
-0src/main/java/encryptionService/ExcelReader.java,8\f\8fe86ce0b36e8c6947218704460925289728dad2
 M
 src/main/java/txt/reader.java,c\0\c0d14804810e19dbed91ced0b3e1a944e7ae7633
-^
-.src/main/java/encryptionService/TxtReader.java,5\4\54979c6feb2fd8bb60664d0da4be4033ac701feb
-_
-/src/main/java/encryptionService/WordReader.java,7\7\77930182237f3c5cb765f7824bd1c2687b3e42d5
 `
 0src/main/java/wordAgent/DataEncryptionAgent.java,2\5\25bf9eb6ebffcb05c6fe97ad41c6aea7485e1be6
 V
@@ -155,8 +139,6 @@ Y
 ,src/main/java/excelService/TcValidation.java,1\3\131e8d29243b0b4f5b55940e5406c4e2762a7a10
 V
 &src/main/java/excelService/Writer.java,5\d\5de963dc897728813e56224cb17674e3db06aa33
-h
-8src/main/java/encryptionService/DataEncryptionAgent.java,8\3\8348fe7726a0dab6e691cf9a737e52f288b10ab6
 T
 $src/main/java/excelService/Main.java,2\8\285a63d47c46ad7dba89e90b0c5ef3e23e90101e
 V
@@ -191,7 +173,17 @@ b
 2src/main/java/wordService/table/WordTableRead.java,b\3\b3aa995ea7878657556f0f250b257bb666df2649
 a
 1src/main/java/wordService/table/UpdateTable3.java,5\d\5dd79ab85ba7b7ecec07def0ad88762e8d49545a
-`
-0src/main/java/wordService/table/createTable.java,f\e\fee0725777343a15abca14e1a0b5341e55198173
 i
 9src/main/java/wordService/table/ReadParagraphExample.java,1\a\1a5da037e50a773d9c0589a5e2cdcbf4eb67988b
+a
+1src/main/java/pdfService/DataEncryptionAgent.java,0\e\0ef8efcea9c7a7ccad03a1f5f3fd6ffcd893fc2e
+d
+4src/main/java/wordService/table/WordReplaceText.java,5\f\5f406e262db9bb90da6ff62b70d6d4a21875aace
+Z
+*src/main/java/pptx/TitleContentWriter.java,9\a\9a10284f210742549c6180473aa08a9000a7d875
+Z
+*src/main/java/pptx/TitleAndBodyWriter.java,4\9\499eac3a9ffc40c9dd5494aa595d198d16bfc44d
+7
+pom.xml,4\4\442292b8a7efeabbe4cc176709b833b1792140ec
+`
+0src/main/java/wordService/table/createTable.java,f\e\fee0725777343a15abca14e1a0b5341e55198173
