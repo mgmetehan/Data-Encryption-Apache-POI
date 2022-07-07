@@ -19,8 +19,6 @@ public class WriteParse {
             XWPFWordExtractor xwpfWordExtractor = new XWPFWordExtractor(doc);
             List<XWPFParagraph> xwpfParagraphList = doc.getParagraphs();
 
-
-
             result = xwpfWordExtractor.getText();
             splitWords = result.split("\\s+");
             for (int i = 0; i < splitWords.length; i++) {

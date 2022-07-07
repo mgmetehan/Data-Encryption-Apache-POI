@@ -11,7 +11,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.List;
 
-public class WordTableRead {
+public class UpdateTable3 {
     static String temp = "";
     static String cellValue;
 
@@ -42,4 +42,3 @@ public class WordTableRead {
         doc.write(out);
     }
 }
-
