@@ -11,16 +11,16 @@ public class Read {
 
     public static void main(String[] args) {
         String fileName = "C:\\Users\\mgmet\\Desktop\\deneme.pptx";
-        readPPT(fileName);
+        String word = "Metehan";
+        readPPT(fileName, word);
     }
 
-    public static void readPPT(String fileName) {
+    public static void readPPT(String fileName, String word) {
         FileInputStream inputStream;
         try {
             inputStream = new FileInputStream(fileName);
             XMLSlideShow ppt = new XMLSlideShow(inputStream);
 
-            POIXMLProperties.CoreProperties props = ppt.getProperties().getCoreProperties();
             String result = "";
             String[] splitWords;
 
@@ -36,7 +36,14 @@ public class Read {
                             if (splitWords[i] == null) {
                                 continue;
                             }
-                            System.out.println(punctuationCheck(splitWords[i]));
+                            String noPuncWord = punctuationCheck(splitWords[i]);
+                            if (word.equals(noPuncWord)) {
+                                noPuncWord = noPuncWord.replace(word, "*****");
+                            }
+
+                            System.out.println(textShape.getText());
+                            //props.setText(noPuncWord);
+                            // System.out.println(result);
                         }
                     }
                 }

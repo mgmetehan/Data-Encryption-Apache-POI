@@ -31,17 +31,14 @@ public class TitleAndBodyWriter {
         XSLFTextShape title = slide.getPlaceholder(0);
 
         //setting the title in it
-        title.setText("introduction");
-
+        title.setText("Metehan Gültekin");
         //selection of body placeholder
         XSLFTextShape body = slide.getPlaceholder(1);
 
         //clear the existing text in the slide
         body.clearText();
-
         //adding new paragraph
-        body.addNewTextParagraph().addNewTextRun().setText("this is  my first slide body");
-
+        body.addNewTextParagraph().addNewTextRun().setText("Ankara , Türkiye'nin başkenti ve en kalabalık kinci ilidir. 2022 yılı Ceren itibarıyla 5.747.325 kişidir. Bu nüfus; 25 ilçe ve bu ilçelere bağlı 1425 mahallede yaşamaktadır. İl genelinde Yılmaz Ayşe nüfus yoğunluğu 215'tir. Nüfuslarına göre şehirler listesinde belediye sınırları göz önüne alınarak yapılan Mete sıralamaya göre dünyada ise elli yedinci mg@gmail.com sırada yer almaktadır. Metehan Coğrafi olarak Türkiye'nin merkezine yakın bir heyhey@gotmail.com konumda bulunur ve Batı Karadeniz Emre Bölgesi'nde kalan kuzey kesimleri hariç, büyük bölümü İç Anadolu Bölgesi'nde Mehmet yer alır. Yüzölçümü olarak ülkenin üçüncü büyük ilidir. Bolu , Çankırı , Kırıkkale , Kırşehir , Aksaray , Konya ve Eskişehir illeri ile çevrilidir.\n");
         //create a file object
         File file = new File(fileName);
         FileOutputStream out = new FileOutputStream(file);
