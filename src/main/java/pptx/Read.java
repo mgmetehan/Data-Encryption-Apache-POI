@@ -1,6 +1,7 @@
 package pptx;
 
 import java.io.*;
+import java.util.ArrayList;
 
 import org.apache.poi.ooxml.POIXMLProperties;
 import org.apache.poi.xslf.usermodel.XMLSlideShow;
@@ -35,7 +36,7 @@ public class Read {
                             if (splitWords[i] == null) {
                                 continue;
                             }
-                            System.out.println("Text: " + splitWords[i]);
+                            System.out.println(punctuationCheck(splitWords[i]));
                         }
                     }
                 }
@@ -45,6 +46,41 @@ public class Read {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+    }
 
+    public static String punctuationCheck(String word) {
+        ArrayList arr = new ArrayList();
+        arr.add(".");
+        arr.add(",");
+        arr.add(":");
+        arr.add(";");
+        arr.add("?");
+        arr.add("!");
+        arr.add("-");
+        arr.add("\u201c");
+        arr.add("\u201d");
+        arr.add("\u2018");
+        arr.add("\u2019");
+        arr.add("\"");
+        arr.add("'");
+        arr.add("(");
+        arr.add(")");
+        arr.add("[");
+        arr.add("]");
+        arr.add("{");
+        /*
+        \u201c matches “ (left double quotation mark)
+        \u201d matches ” (right double quotation mark)
+        \u2018 matches ‘ (left single quotation mark)
+        \u2019 matches ’ (right single quotation mark)
+         */
+        String[] parts = new String[0];
+        for (int i = 0; i < arr.size(); i++) {
+            if (word.startsWith(arr.get(i).toString()) || word.endsWith(arr.get(i).toString())) {
+                word = word.replace((CharSequence) arr.get(i), "");
+            }
+        }
+
+        return word;
     }
 }
