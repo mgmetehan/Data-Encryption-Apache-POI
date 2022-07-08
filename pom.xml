@@ -132,23 +132,48 @@
             <artifactId>java-libpst</artifactId>
             <version>0.9.3</version>
         </dependency>
+
+
+        <!-- https://mvnrepository.com/artifact/org.docx4j/docx4j -->
+        <dependency>
+            <groupId>org.docx4j</groupId>
+            <artifactId>docx4j</artifactId>
+            <version>6.1.2</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/javax.xml.bind/jaxb-api -->
+        <dependency>
+            <groupId>javax.xml.bind</groupId>
+            <artifactId>jaxb-api</artifactId>
+            <version>2.1</version>
+        </dependency>
+
+
+        <dependency>
+            <groupId>e-iceblue</groupId>
+            <artifactId>spire.doc</artifactId>
+            <version>5.4.2</version>
+        </dependency>
+        <dependency>
+            <groupId>e-iceblue</groupId>
+            <artifactId>spire.xls</artifactId>
+            <version>5.3.3</version>
+        </dependency>
+        <dependency>
+            <groupId>e-iceblue</groupId>
+            <artifactId>spire.presentation</artifactId>
+            <version>5.4.0</version>
+        </dependency>
+
     </dependencies>
-    <!--
-            <dependency>
-                <groupId>e-iceblue</groupId>
-                <artifactId>spire.doc</artifactId>
-                <version>5.4.2</version>
-            </dependency>
 
 
-        <repositories>
-            <repository>
-                <id>com.e-iceblue</id>
-                <name>e-iceblue</name>
-                <url>https://repo.e-iceblue.com/nexus/content/groups/public/</url>
-            </repository>
-        </repositories>
-    -->
+    <repositories>
+        <repository>
+            <id>com.e-iceblue</id>
+            <name>e-iceblue</name>
+            <url>https://repo.e-iceblue.com/nexus/content/groups/public/</url>
+        </repository>
+    </repositories>
 
 
 </project>

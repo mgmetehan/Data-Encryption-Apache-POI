@@ -6,23 +6,28 @@ import org.apache.poi.hwpf.usermodel.Paragraph;
 import org.apache.poi.hwpf.usermodel.Range;
 import org.apache.poi.hwpf.usermodel.Section;
 import org.apache.poi.poifs.filesystem.POIFSFileSystem;
+import org.apache.poi.xwpf.extractor.XWPFWordExtractor;
+import org.apache.poi.xwpf.usermodel.XWPFDocument;
 
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.net.URL;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 
-public class WordReplaceText {
-    private static final String SOURCE_FILE = "lipsum.doc";
-    private static final String OUTPUT_FILE = "new-lipsum.doc";
+public class WordReplaceText11 {
+
+    private static final String SOURCE_FILE = "C:\\Users\\mgmet\\Desktop\\deneme.docx";
+    private static final String OUTPUT_FILE = "C:\\Users\\mgmet\\Desktop\\new-lipsum.doc";
 
     public static void main(String[] args) throws Exception {
-        WordReplaceText instance = new WordReplaceText();
-        try (HWPFDocument doc = instance.openDocument(SOURCE_FILE)) {
-            if (doc != null) {
-                HWPFDocument newDoc = instance.replaceText(doc, "dolor", "d0l0r");
+        WordReplaceText11 instance = new WordReplaceText11();
+        try (HWPFDocument doc = new HWPFDocument(Files.newInputStream(Paths.get(SOURCE_FILE)))) {
+
+                HWPFDocument newDoc = instance.replaceText(doc, "Levent", "*****");
                 instance.saveDocument(newDoc, OUTPUT_FILE);
-            }
+
         }
     }
 

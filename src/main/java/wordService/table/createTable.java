@@ -12,7 +12,7 @@ public class createTable {
 
         //Blank Document
         XWPFDocument document = new XWPFDocument();
-        String fileName = "C:\\Users\\mgmet\\Desktop\\deneme.docx";
+        String fileName = "C:\\Users\\mgmet\\Desktop\\d.docx";
         //Write the Document in file system
         FileOutputStream out = new FileOutputStream(new File(fileName));
 

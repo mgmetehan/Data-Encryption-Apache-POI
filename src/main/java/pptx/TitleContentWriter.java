@@ -22,7 +22,6 @@ public class TitleContentWriter {
             title.setText("Title here");
             XSLFTextShape body = slide.getPlaceholder(1);
             body.clearText();
-            body.addNewTextParagraph().addNewTextRun().setText("This is a new slide created using Java program.");
             ppt.write(os);
         } catch (Exception e) {
             System.out.println(e);
