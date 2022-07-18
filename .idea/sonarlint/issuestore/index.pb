@@ -61,10 +61,6 @@ T
 $src/main/java/mask/TcValidation.java,e\0\e0e0a3e96e4d712b9cf771524b23ef19867fd45a
 h
 8src/main/java/development/word/read/WordAllReadDemo.java,a\8\a8f5d3bfc25a47f9996cd4b3c323bf6b1d196e55
-O
-src/main/java/pdf/Word2Pdf.java,8\7\8718057ca195d48505523d7661d5c4c64f396358
-N
-src/main/java/pdf/WordPdf.java,3\5\35339c528b2caa9bc9c032e994155a6433a0e795
 `
 0src/main/java/pdf/excel/ExcelToPDFConverter.java,e\1\e11830582b983e385d4d268afb07fa45059314c4
 Y
@@ -91,8 +87,6 @@ Y
 )src/main/java/pdfService/ExcelWriter.java,a\f\afe765d158ec54c7af5931e2f40942f0945fe78a
 `
 0src/main/java/pdfService/PdfGetCharLocation.java,6\4\643d9fbcc7ac7286ea987a0824ad9d79d69f4848
-W
-'src/main/java/pdfService/PdfWriter.java,5\1\51e61aa2a733b6ecb9f4a56364cf28774d01f674
 W
 'src/main/java/pdfService/PdfReader.java,6\3\638816dde4b71241f47312d8ea244bb2d209de72
 V
@@ -175,8 +169,6 @@ Y
 )src/main/java/wordService/WordReader.java,0\9\0905108fbb6929f624f42e7523b85463249f1e34
 W
 'src/main/java/wordAgent/WordReader.java,4\d\4d1869a6cac20b4f01257eb067e160113a36b8c3
-O
-src/main/java/pdf/Pdf2Word.java,7\0\70bf7af01caecc5096f3bbb9cdfed54beae71cca
 V
 &src/main/java/pdf/TakeScreenshots.java,5\b\5b3f2f7d32d4d9f7f40e18efe4212e4c7680b622
 ]
@@ -193,8 +185,6 @@ f
 6src/main/java/wordService/table/WordReplaceText11.java,6\2\6285b0c9507c7d75c71078262048fc0837ed8330
 ]
 -src/main/java/wordService/table/ReadBest.java,c\d\cd5895636adb4bb1d0b5141a2b09aabbef3e1e2a
-S
-#src/main/java/pptx/ReplaceText.java,9\3\93139fbb02be76eb368112cd2e61c2053d194919
 Z
 *src/main/java/pptx/TitleContentWriter.java,9\a\9a10284f210742549c6180473aa08a9000a7d875
 W
@@ -211,10 +201,6 @@ N
 +src/main/java/pdf/pdfBox/ReplaceStream.java,8\9\8976ec4bdb99e2de7a9bfa8f7c97c18b6721496f
 X
 (src/main/java/pdf/itext/DrawingLine.java,a\f\af2f596ff0add6fa5dd15de47abcd3bfb94e6579
-\
-,src/main/java/pdf/itext/AddContentToPDF.java,3\8\38b7c3f0cf48e192a2ed19e50677248c1cf9e3f6
-Z
-*src/main/java/pdf/itext/FillRectangle.java,9\d\9d7d777aba06cb018c33bebabf7a5eb2ff7d7f8d
 ]
 -src/main/java/pdf/itext/PDFModifyExample.java,0\0\00a9d3aadbaa6998fb74d0dcb5a8897851309270
 V
@@ -224,8 +210,4 @@ d
 ]
 -src/main/java/pdf/pdfBox/GetWordsFromPDF.java,7\3\730f658b03e2920b4ceaa7b78ae8bcb7b46aeff1
 Q
-!src/main/java/pdf/ChangeText.java,3\6\3622a2a94a0b9fe8f91160e38d4549bdb91bcd20
-Q
 !src/main/java/ProcessService.java,5\4\54dd00a5d048b6cd55126498ce9178d2953d1a61
-7
-pom.xml,4\4\442292b8a7efeabbe4cc176709b833b1792140ec

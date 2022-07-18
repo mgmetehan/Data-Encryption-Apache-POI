@@ -20,7 +20,7 @@ public class FillRectangle
             document.open();
             PdfContentByte contentByte = writer.getDirectContent();
             //contentByte.rectangle(71.0, 88.10077, 8.664001, 6.696);
-            contentByte.rectangle(100, 842.0, 50, 50);
+            contentByte.rectangle(100F, 842, 50, 50);
             System.out.println(document.getPageSize());
             contentByte.setColorFill(BaseColor.CYAN);
             contentByte.fill();

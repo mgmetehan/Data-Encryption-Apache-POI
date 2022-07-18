@@ -21,11 +21,11 @@ public class PdfWriter {
         PdfContentByte over = stamper.getOverContent(1);
         over.setRGBColorFill(255, 0, 0);
 
-        over.setLineWidth(13);
+ /*       over.setLineWidth(13);
         over.moveTo(71.0, maxY - 88.10077 + 2);
         over.lineTo(104.96 + 6, maxY - 88.10077 + 2);
 
-        over.stroke();
+        over.stroke();*/
 
         stamper.close();
 

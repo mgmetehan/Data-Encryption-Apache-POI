@@ -8,7 +8,7 @@ import com.itextpdf.text.pdf.*;
 
 
 public class AddContentToPDF {
-
+/*
     public static void main(String[] args) throws IOException, DocumentException {
 
         PdfReader reader = new PdfReader("C:\\Users\\mgmet\\Desktop\\deneme.pdf"); // input PDF
@@ -29,5 +29,5 @@ public class AddContentToPDF {
 
         stamper.close();
 
-    }
+    }*/
 }
