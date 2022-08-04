@@ -1,2 +1,2 @@
 # Data-Encryption-Apache-POI
-Java Apache-POI framework'ünü kullanarak Excel ve Word dökümanlarında bulduğu Tc No bilgilerini şifreleyen program.
+Java Apache-POI framework'ünü kullanarak dökümanlarda kelime bulma
